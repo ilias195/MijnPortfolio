@@ -59,12 +59,14 @@ nav ul li a {
 .home-content{
 
     max-width: 600px;
+    margin: 20px 0 40px;
 }
 
 .home-content h1{
     font-size: 56px;
     margin-bottom: 20px;
     font-weight: 700;
+    line-height: 1.2;
 }
 
 .home-content h3{
@@ -80,7 +82,30 @@ nav ul li a {
 }
 
 .home-content .btn-content {
+    display: flex;
+    justify-content: space-between;
     width: 345px;
     height: 50px;
-    background: #148f03;
+   
+}
+
+.btn-content a{
+    position: relative;
+    display : inline-flex;
+    width: 150px;
+    height:  100%;
+    background: #00abf0;
+    border: 2px solid #00abf0;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #081b29;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 1px;
+   
+
+}
+.btn-content a:nth-child(2){
+     background: transparent;
+     color: #00abf0;
 }
