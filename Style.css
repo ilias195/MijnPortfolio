@@ -77,8 +77,8 @@ nav ul li a {
 }
 .home-content p{
     font-size: 18px;
-    margin-bottom: 20px;
-    color: #c1c1c1;
+    margin: 20px 0 40px;
+    
 }
 
 .home-content .btn-content {
@@ -90,11 +90,13 @@ nav ul li a {
 }
 
 .btn-content a{
-    position: relative;
-    display : inline-flex;
+    position: relative; /* nodig voor ::before positie */
+    display: inline-flex;
+    align-items: center; /* tekst verticaal centreren */
+    justify-content: center; /* tekst horizontaal centreren */
     width: 150px;
-    height:  100%;
-    background: #00abf0;
+    height: 100%;
+    background: #00abf0; /* deze kleur geld voor beide knoppen */
     border: 2px solid #00abf0;
     border-radius: 8px;
     text-decoration: none;
@@ -102,10 +104,36 @@ nav ul li a {
     font-size: 19px;
     font-weight: 600;
     letter-spacing: 1px;
-   
-
+    overflow: hidden; /* voorkomt dat animatie buiten knop komt */
+    z-index: 1;
+    transition: .5s;
+}
+.btn-content a:hover{  /* de knop "My Projects" hover kleur */
+    color: #00abf0;
+}
+   .btn-content a:nth-child(2):hover{
+    background: #081b29;/* basis kleur voor de "Contact Me" knop bij hover */
+     color: #00abf0; /* tekst kleur bij hover */
+}
+.btn-content a:nth-child(2)::before{
+    background: #0b5b9c;/* animatie kleur voor de "Contact Me" knop */
 }
 .btn-content a:nth-child(2){
      background: transparent;
-     color: #00abf0;
+      color: #18a7a7;
+}
+.btn-content a::before{/* pseudo element voor animatie en voegt een extra layer toe */
+   content: ''; /* maakt een pseudo element */
+    position: absolute;
+    top: 0;
+    left: -100%; /* start buiten de knop */
+    width: 100%;
+    height: 100%;
+    background: #081b29;/* animatie kleur voor de "My Projects" knop */
+    z-index: -1; /* zorgt dat het achter de tekst blijft */
+    transition: .4s;
+}
+.btn-content a:hover::before{
+     left: 0;/* zorgt ervoor dat de animatie van links anar rechts gaat */
+    
 }
