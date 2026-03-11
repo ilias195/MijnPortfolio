@@ -50,6 +50,9 @@ nav ul li a {
 }
 .home{
     height: 100vh;
+    background: url('Img/ilias-foto.jpeg')/*foto van de achtergrond*/ no-repeat;;
+    background-size: cover;
+    background-position: center;
     display:  flex;
     align-items: center;
   padding: 0 10%;;
@@ -136,4 +139,49 @@ nav ul li a {
 .btn-content a:hover::before{
      left: 0;/* zorgt ervoor dat de animatie van links anar rechts gaat */
     
+}
+
+.home-socialMedia{
+    position: absolute;
+    bottom: 40px;
+    width: 170px;
+    display: flex;
+    justify-content: center;
+}
+.home-socialMedia a{
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+   width: 40px;
+   height: 40px;
+   background: transparent;    
+   margin-right: 20px; /* ruimte tussen iconen */
+   border: 2px solid #00abf0; /* dit maakt de rand */
+   border-radius: 50%; /* maakt de rand rond */
+   font-size: 20px;
+   color: #00abf0; /* kleur van de iconen */
+   text-decoration: none;
+   z-index: 1  ;
+   overflow: hidden; /* voorkomt dat animatie buiten de iconen komt */
+   transition: .5s  ;
+}
+.home-socialMedia a:hover{
+    color: #081b29; /* icoon kleur bij hover */
+}
+
+.home-socialMedia a::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #00abf0;
+    z-index: -1;
+    transition: .5s;
+}
+
+.home-socialMedia a:hover::before{
+    left: 0;
 }
