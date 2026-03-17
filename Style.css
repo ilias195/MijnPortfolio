@@ -8,7 +8,7 @@
 body {
 
     background-color: #0A0A0A;
-    color: #ededed;
+    color: #EDEDED;
 
 }
 
@@ -45,7 +45,7 @@ nav ul li a {
 }
 .NavBar a:hover,
 .NavBar a.active {
-    color: #0b5b9c;
+    color: #7A1E2C;
 
 }
 .home{
@@ -79,7 +79,7 @@ nav ul li a {
     font-size: 32px;
     margin-bottom: 10px;
     font-weight: 700;
-    color: rgb(21, 69, 173);
+    color: #7A1E2C;
 }
 .home-content p{
     font-size: 18px;
@@ -102,11 +102,11 @@ nav ul li a {
     justify-content: center; /* tekst horizontaal centreren */
     width: 150px;
     height: 100%;
-    background: #00abf0; /* deze kleur geld voor beide knoppen */
-    border: 2px solid #00abf0;
+    background: #7A1E2C; /* deze kleur geld voor beide knoppen */
+    border: 2px solid #7A1E2C;
     border-radius: 8px;
     text-decoration: none;
-    color: #081b29;
+    color: #0A0A0A;
     font-size: 19px;
     font-weight: 600;
     letter-spacing: 1px;
@@ -115,18 +115,18 @@ nav ul li a {
     transition: .5s;
 }
 .btn-content a:hover{  /* de knop "My Projects" hover kleur */
-    color: #00abf0;
+    color: #7A1E2C;
 }
    .btn-content a:nth-child(2):hover{
-    background: #081b29;/* basis kleur voor de "Contact Me" knop bij hover */
-     color: #00abf0; /* tekst kleur bij hover */
+    background: #0A0A0A;/* basis kleur voor de "Contact Me" knop bij hover */
+     color: #7A1E2C; /* tekst kleur bij hover */
 }
 .btn-content a:nth-child(2)::before{
-    background: #0b5b9c;/* animatie kleur voor de "Contact Me" knop */
+    background: #A3243B;/* animatie kleur voor de "Contact Me" knop */
 }
 .btn-content a:nth-child(2){
      background: transparent;
-      color: #18a7a7;
+      color: #7A1E2C;
 }
 .btn-content a::before{/* pseudo element voor animatie en voegt een extra layer toe */
    content: ''; /* maakt een pseudo element */
@@ -135,7 +135,7 @@ nav ul li a {
     left: -100%; /* start buiten de knop */
     width: 100%;
     height: 100%;
-    background: #081b29;/* animatie kleur voor de "My Projects" knop */
+    background: #4A0F18;/* animatie kleur voor de "My Projects" knop */
     z-index: -1; /* zorgt dat het achter de tekst blijft */
     transition: .4s;
 }
@@ -160,17 +160,17 @@ nav ul li a {
    height: 40px;
    background: transparent;    
    margin-right: 20px; /* ruimte tussen iconen */
-   border: 2px solid #00abf0; /* dit maakt de rand */
+   border: 2px solid #7A1E2C; /* dit maakt de rand */
    border-radius: 50%; /* maakt de rand rond */
    font-size: 20px;
-   color: #00abf0; /* kleur van de iconen */
+   color: #7A1E2C; /* kleur van de iconen */
    text-decoration: none;
    z-index: 1  ;
    overflow: hidden; /* voorkomt dat animatie buiten de iconen komt */
    transition: .5s  ;
 }
 .home-socialMedia a:hover{
-    color: #081b29; /* icoon kleur bij hover */
+    color:  #0A0A0A; /* icoon kleur bij hover */
 }
 
 .home-socialMedia a::before{
@@ -180,7 +180,7 @@ nav ul li a {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: #00abf0;
+    background: #7A1E2C;
     z-index: -1;
     transition: .5s;
 }
