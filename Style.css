@@ -7,7 +7,7 @@
 
 body {
 
-    background-color: #081b29;
+    background-color: #0A0A0A;
     color: #ededed;
 
 }
@@ -49,14 +49,17 @@ nav ul li a {
 
 }
 .home{
+   
     height: 100vh;
-    background: url('Img/ilias-foto.jpeg')/*foto van de achtergrond*/ no-repeat;;
-    background-size: cover;
-    background-position: center;
-    display:  flex;
+    display: flex;
     align-items: center;
-  padding: 0 10%;;
+    justify-content: space-between;
+    padding: 0 10%;
+}
     
+.home-img img{
+    width: 450px;
+    height: auto;
 }
 
 .home-content{
