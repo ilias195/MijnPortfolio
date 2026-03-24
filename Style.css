@@ -7,7 +7,8 @@
 
 body {
 
-    background-color: #0A0A0A;
+    background: radial-gradient(circle at 80% 50%, rgba(122, 30, 44, 0.25), transparent 40%),
+        #0A0A0A;
     color: #EDEDED;
 
 }
@@ -27,7 +28,7 @@ body {
 nav ul {
     display: flex;
     gap: 20px;
-    list-style: none;   
+    list-style: none;
 }
 
 header .logo {
@@ -36,56 +37,100 @@ header .logo {
     color: #ededed;
     text-decoration: none;
 }
+
 nav ul li a {
     color: #ededed;
     text-decoration: none;
     font-size: 18px;
     font-weight: 500;
     margin-left: 35px;
- transition: .3s;
+    transition: .3s;
 }
+
 .NavBar a:hover,
 .NavBar a.active {
     color: #7A1E2C;
 
 }
-.home{
-   
+
+.home {
+
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 10%;
 }
-    
-.home-img img{
-    width: 450px;
-    height: auto;
+
+.home-img {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: -50px;
+    /* duwt hem meer naar rand */
 }
 
-.home-content{
+.home-img img {
+    width: 850px;
+    max-width: none;
+    height: auto;
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, black 30%),
+        linear-gradient(to left, transparent 0%, black 20%);
+    mask-image: linear-gradient(to top, transparent 0%, black 30%),
+        linear-gradient(to left, transparent 0%, black 20%);
+}
+
+.home-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 40%;
+
+    background: linear-gradient(to top, #0A0A0A, transparent);
+
+    pointer-events: none;
+}
+
+.home-img::before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(122, 30, 44, 0.25), transparent 70%);
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    filter: blur(50px);
+    z-index: 0;
+}
+
+.home-content {
 
     max-width: 600px;
     margin: 20px 0 40px;
 }
 
-.home-content h1{
+.home-content h1 {
     font-size: 56px;
     margin-bottom: 20px;
     font-weight: 700;
     line-height: 1.2;
 }
 
-.home-content h3{
+.home-content h3 {
     font-size: 32px;
     margin-bottom: 10px;
     font-weight: 700;
     color: #7A1E2C;
 }
-.home-content p{
+
+.home-content p {
     font-size: 18px;
     margin: 20px 0 40px;
-    
+
 }
 
 .home-content .btn-content {
@@ -93,17 +138,21 @@ nav ul li a {
     justify-content: space-between;
     width: 345px;
     height: 50px;
-   
+
 }
 
-.btn-content a{
-    position: relative; /* nodig voor ::before positie */
+.btn-content a {
+    position: relative;
+    /* nodig voor ::before positie */
     display: inline-flex;
-    align-items: center; /* tekst verticaal centreren */
-    justify-content: center; /* tekst horizontaal centreren */
+    align-items: center;
+    /* tekst verticaal centreren */
+    justify-content: center;
+    /* tekst horizontaal centreren */
     width: 150px;
     height: 100%;
-    background: #7A1E2C; /* deze kleur geld voor beide knoppen */
+    background: #7A1E2C;
+    /* deze kleur geld voor beide knoppen */
     border: 2px solid #7A1E2C;
     border-radius: 8px;
     text-decoration: none;
@@ -111,45 +160,62 @@ nav ul li a {
     font-size: 19px;
     font-weight: 600;
     letter-spacing: 1px;
-    overflow: hidden; /* voorkomt dat animatie buiten knop komt */
+    overflow: hidden;
+    /* voorkomt dat animatie buiten knop komt */
     z-index: 1;
     transition: .5s;
 }
-.btn-content a:hover{  /* de knop "My Projects" hover kleur */
+
+.btn-content a:hover {
+    /* de knop "My Projects" hover kleur */
     color: #7A1E2C;
 }
-   .btn-content a:nth-child(2):hover{
-    background: #0A0A0A;/* basis kleur voor de "Contact Me" knop bij hover */
-     color: #7A1E2C; /* tekst kleur bij hover */
+
+.btn-content a:nth-child(2):hover {
+    background: #0A0A0A;
+    /* basis kleur voor de "Contact Me" knop bij hover */
+    color: #7A1E2C;
+    /* tekst kleur bij hover */
 }
-.btn-content a:nth-child(2)::before{
-    background: #A3243B;/* animatie kleur voor de "Contact Me" knop */
+
+.btn-content a:nth-child(2)::before {
+    background: #A3243B;
+    /* animatie kleur voor de "Contact Me" knop */
 }
-.btn-content a:nth-child(2){
-     background: transparent;
-      color: #7A1E2C;
+
+.btn-content a:nth-child(2) {
+    background: transparent;
+    color: #7A1E2C;
 }
-.btn-content a::before{/* pseudo element voor animatie en voegt een extra layer toe */
-   content: ''; /* maakt een pseudo element */
+
+.btn-content a::before {
+    /* pseudo element voor animatie en voegt een extra layer toe */
+    content: '';
+    /* maakt een pseudo element */
     position: absolute;
     top: 0;
-    left: -100%; /* start buiten de knop */
+    left: -100%;
+    /* start buiten de knop */
     width: 100%;
     height: 100%;
-    background: #4A0F18;/* animatie kleur voor de "My Projects" knop */
-    z-index: -1; /* zorgt dat het achter de tekst blijft */
+    background: #4A0F18;
+    /* animatie kleur voor de "My Projects" knop */
+    z-index: -1;
+    /* zorgt dat het achter de tekst blijft */
     transition: .4s;
 }
-.btn-content a:hover::before{
-     left: 0;/* zorgt ervoor dat de animatie van links anar rechts gaat */
-    
+
+.btn-content a:hover::before {
+    left: 0;
+    /* zorgt ervoor dat de animatie van links anar rechts gaat */
+
 }
 
 
 
 
 /* contact pagina */
-.about{
+.about {
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -157,91 +223,137 @@ nav ul li a {
     gap: 60px;
 }
 
-.about-img img{
-    width: 350px;
+.about-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     margin-left: 70px;
+     margin-bottom: 70px;
+}
+
+.about-img img {
+    width: 600px;
     border-radius: 12px;
-    box-shadow: 0 0 30px rgba(122,30,44,0.5);
+    box-shadow: 0 0 30px rgba(122, 30, 44, 0.5);
 }
 
-.about-content{
-    max-width: 600px;
+.about-content {
+    max-width: 700px;
 }
 
-.about-content h1{
+.about-content h1 {
     font-size: 48px;
     margin-bottom: 20px;
 }
 
-.about-content h2{
+.about-content h2 {
     color: #7A1E2C;
     margin-bottom: 15px;
 }
 
-.about-content p{
+.about-content p {
     line-height: 1.7;
     margin-bottom: 20px;
 }
 
-.about-skills{
+.about-skills {
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
 }
 
-.skill{
+.skill {
     padding: 8px 14px;
     border: 2px solid #7A1E2C;
     border-radius: 8px;
     font-size: 14px;
 }
 
-footer{
-    background:#050505;
-    padding:40px;
-    text-align:center;
-    border-top:1px solid #7A1E2C;
+footer {
+    background: #050505;
+    padding: 40px;
+    text-align: center;
+    border-top: 1px solid #7A1E2C;
 }
 
-.footer-icons{
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
-    gap:20px;
+.footer-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-.footer-icons a{
+.footer-icons a {
     position: relative;
-    display:inline-flex;
-    justify-content:center;
-    align-items:center;
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    border:2px solid #7A1E2C;
-    color:#7A1E2C;
-    font-size:20px;
-    text-decoration:none;
-    overflow:hidden;
-    z-index:1;
-    transition:.5s;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 2px solid #7A1E2C;
+    color: #7A1E2C;
+    font-size: 20px;
+    text-decoration: none;
+    overflow: hidden;
+    z-index: 1;
+    transition: .5s;
 }
 
-.footer-icons a:hover{
-    color:#0A0A0A;
+.footer-icons a:hover {
+    color: #0A0A0A;
 }
 
-.footer-icons a::before{
-    content:'';
-    position:absolute;
-    top:0;
-    left:-100%;
-    width:100%;
-    height:100%;
-    background:#7A1E2C;
-    z-index:-1;
-    transition:.5s;
+.footer-icons a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #7A1E2C;
+    z-index: -1;
+    transition: .5s;
 }
 
-.footer-icons a:hover::before{
-    left:0;
+.footer-icons a:hover::before {
+    left: 0;
+}
+
+/* TITEL */
+.about-content h1 {
+    font-size: 48px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    position: relative;
+}
+
+/* subtiele lijn onder titel */
+.about-content h1::after {
+    content: '';
+    width: 60px;
+    height: 3px;
+    background: #7A1E2C;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+}
+
+/* KOPJES */
+.about-content h2 {
+    font-size: 22px;
+    color: #7A1E2C;
+    margin-top: 25px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* TEKST */
+.about-content p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #cfcfcf;
+    margin-bottom: 15px;
 }
