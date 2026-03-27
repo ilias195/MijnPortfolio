@@ -4,15 +4,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <title>My Projects</title>
 </head>
 
 <body>
-    <h1>My Projects</h1>
-    <p>Welkom op de projectenpagina.</p>
+     <header class="header">
+        <a href="#home" class="logo">Ilias</a>
 
-     <a href="Home.HTML">Terug naar home</a>
+        <nav class="NavBar">
+            <ul>
+                <li><a href="Home.HTML" class="active">Home</a></li>
+                <li><a href="About.HTML">About</a></li>
+                <li><a href="MyProjects.HTML">Projects</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <section class="projects-page">
+        <h1>My Projects</h1>
+        <p class="subtitle">A selection of my work</p>
+
+        <div class="projects">
+
+            <!-- PROJECT 1 (highlight) -->
+            <div class="project-card">
+                <img src="images/project1.jpg" alt="Project 1">
+                <div class="project-content">
+                    <h3>Unity Platformer</h3>
+                    <p>2D game met custom movement, enemies en UI system.</p>
+                    <a href="#" class="project-btn">Bekijk project</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 2 -->
+            <div class="project-card">
+                <img src="images/project2.jpg" alt="Project 2">
+                <div class="project-content">
+                    <h3>The EndlessHouse</h3>
+                    <p>Inventory en crafting systeem met Scriptable Objects.</p>
+                    <a href="#" class="project-btn">Bekijk project</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 3 -->
+            <div class="project-card">
+                <img src="images/project3.jpg" alt="Project 3">
+                <div class="project-content">
+                    <h3>Virtual Slice</h3>
+                    <p>Visual scene gebouwd in Unity 6.</p>
+                    <a href="#" class="project-btn">Bekijk project</a>
+                </div>
+            </div>
+
+            <!-- PROJECT 4 -->
+            <div class="project-card">
+                <img src="images/project4.jpg" alt="Project 4">
+                <div class="project-content">
+                    <h3>SilverBullet game jaar project</h3>
+                    <p>gemaakt in Unity 6 en C#.</p>
+                    <a href="#" class="project-btn">Bekijk project</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+<footer class="footer">
+
+    <div class="footer-content">
+
+        <div class="footer-left">
+            <h3>Contact Me</h3>
+            <p>Let’s build something great together.</p>
+        </div>
+
+        <div class="footer-icons">
+            <a href="mailto:iliask195@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/ilias195?tab=repositories"><i class="fa-brands fa-github"></i></a>
+        </div>
+
+    </div>
+
+</footer>
 </body>
 
 </html>
