@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Starlight Forest</title>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="NavBar">
+        <ul>
+            <li><a href="Home.HTML">Home</a></li>
+            <li><a href="About.HTML">About</a></li>
+            <li><a href="MyProjects.HTML" class="active">Projects</a></li>
+        </ul>
+    </nav>
+
+   <section class="starlight-page">
+
+    <h1 class="starlight-title">Starlight Forest</h1>
+    <p class="starlight-subtitle">2D Platformer Game</p>
+
+    <!-- GAME PREVIEW -->
+    <div class="game-preview">
+        <img src="Img/Project/StartLightForest.png" alt="Starlight Forest">
+
+        <a href="https://flash-time-01.itch.io/starlightforest" 
+           target="_blank" 
+           class="play-btn">
+            ▶ Speel de game
+        </a>
+    </div>
+
+    <!-- BESCHRIJVING -->
+    <div class="game-description">
+        <h2>Over de game</h2>
+        <p>
+            Starlight Forest is een 2D platformer waarin je obstakels ontwijkt,
+            vijanden verslaat en coins verzamelt. De focus ligt op soepele
+            gameplay en het ontwikkelen van mechanics met C# in Unity.
+        </p>
+    </div>
+
+    <!-- HOE GEMAAKT -->
+    <div class="dev-section">
+        <h2>Hoe heb ik deze game gemaakt?</h2>
+
+        <div class="dev-block">
+            <h3>Movement & Physics</h3>
+            <p>
+                Ik heb de movement van de speler gebouwd met C# in Unity,
+                waarbij ik gebruik heb gemaakt van Rigidbody2D en custom jump logic.
+            </p>
+            <img src="Img/gif-movement.gif">
+        </div>
+
+        <div class="dev-block">
+            <h3>Enemies & AI</h3>
+            <p>
+                De enemies bewegen met een simpel AI systeem gebaseerd op
+                patrol points en detectie van de speler.
+            </p>
+            <img src="Img/gif-enemy.gif">
+        </div>
+
+        <div class="dev-block">
+            <h3>UI & Gameplay</h3>
+            <p>
+                Ik heb een UI systeem gemaakt voor health en coins,
+                gekoppeld aan game events zoals damage en pickups.
+            </p>
+            <img src="Img/gif-ui.gif">
+        </div>
+    </div>
+
+</section>
+
+</body>
+
+</html>

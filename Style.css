@@ -440,3 +440,115 @@ footer {
 .project-card:first-child {
     grid-column: span 2;
 }
+
+/* ===== PAGINA ===== */
+.starlight-page{
+    padding: 120px 10%;
+    background: radial-gradient(circle at 80% 20%, rgba(122,30,44,0.2), transparent 40%), #0A0A0A;
+}
+
+/* TITEL */
+.starlight-title{
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.starlight-subtitle{
+    color: #7A1E2C;
+    margin-bottom: 40px;
+}
+
+/* GAME PREVIEW */
+.game-preview{
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.game-preview img{
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(122,30,44,0.4);
+}
+
+/* PLAY BUTTON */
+.play-btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: linear-gradient(135deg, #7A1E2C, #A3243B);
+    padding: 16px 30px;
+    border-radius: 12px;
+
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 18px;
+
+    box-shadow: 0 0 20px rgba(122,30,44,0.6);
+    transition: .3s;
+}
+
+.play-btn:hover{
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 30px rgba(122,30,44,0.9);
+}
+
+/* BESCHRIJVING */
+.game-description{
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.game-description h2{
+    color: #7A1E2C;
+    margin-bottom: 15px;
+}
+
+.game-description p{
+    color: #cfcfcf;
+    line-height: 1.8;
+}
+
+/* DEV SECTION */
+.dev-section{
+    max-width: 1000px;
+    margin: auto;
+}
+
+.dev-section h2{
+    color: #7A1E2C;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* BLOKKEN */
+.dev-block{
+    margin-bottom: 60px;
+}
+
+.dev-block h3{
+    margin-bottom: 10px;
+}
+
+.dev-block p{
+    color: #cfcfcf;
+    margin-bottom: 15px;
+}
+
+.dev-block img{
+    width: 100%;
+    max-width: 600px;
+    border-radius: 12px;
+    display: block;
+    margin: auto;
+    transition: .3s;
+}
+
+.dev-block img:hover{
+    transform: scale(1.02);
+}
