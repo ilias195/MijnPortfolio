@@ -591,3 +591,191 @@ footer {
     margin-top: 10px;
     color: #ccc;
 }
+mechanics-page {
+    min-height: 100vh;
+    padding: 120px 8% 60px;
+}
+
+/* TITLES */
+.mechanics-title {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.mechanics-subtitle {
+    font-size: 18px;
+    color: #bdbdbd;
+    margin-bottom: 35px;
+}
+
+
+/* ================= MAIN TABS (Movement / Enemy / UI) ================= */
+
+.mechanic-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.mechanic-tab {
+    background: #111;
+    color: #EDEDED;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.mechanic-tab:hover {
+    background: #7A1E2C;
+    transform: translateY(-2px);
+}
+
+.mechanic-tab.active {
+    background: #7A1E2C;
+    box-shadow: 0 0 20px rgba(122, 30, 44, 0.35);
+}
+
+
+/* ================= LEVEL TABS ================= */
+
+.level-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+.level-tab {
+    background: #111;
+    color: #EDEDED;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.level-tab:hover {
+    background: #7A1E2C;
+}
+
+.level-tab.active {
+    background: #7A1E2C;
+    box-shadow: 0 0 15px rgba(122, 30, 44, 0.3);
+}
+
+
+/* ================= CONTENT SWITCHING ================= */
+
+.mechanic-content {
+    display: none;
+}
+
+.mechanic-content.active {
+    display: block;
+}
+
+.level-content {
+    display: none;
+}
+
+.level-content.active {
+    display: block; 
+}
+
+
+/* ================= LAYOUT ================= */
+.mechanics-page {
+    padding-top: 70px; /* meer ruimte onder header */
+}
+
+.mechanic-layout {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 40px;
+    align-items: center;
+    min-height: 420px;
+}
+
+
+/* VIDEO */
+
+.mechanic-video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mechanic-video video {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 20px;
+    box-shadow: 0 0 35px rgba(122, 30, 44, 0.18);
+}
+
+
+/* DESCRIPTION */
+
+.mechanic-description {
+    background: rgba(15, 15, 15, 0.75);
+    border: 1px solid rgba(122, 30, 44, 0.2);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 25px rgba(122, 30, 44, 0.12);
+}
+
+.mechanic-description h2 {
+    font-size: 28px;
+    margin-bottom: 18px;
+}
+
+.mechanic-description p {
+    font-size: 17px;
+    line-height: 1.7;
+    color: #d6d6d6;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1000px) {
+    .mechanic-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .mechanic-description {
+        padding: 24px;
+    }
+
+    .mechanics-title {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 600px) {
+    .mechanics-page {
+        padding: 100px 6% 40px;
+    }
+
+    .mechanics-title {
+        font-size: 32px;
+    }
+
+    .mechanics-subtitle {
+        font-size: 16px;
+    }
+
+    .mechanic-tabs,
+    .level-tabs {
+        flex-direction: column;
+    }
+
+    .mechanic-tab,
+    .level-tab {
+        width: 100%;
+        text-align: center;
+    }
+}
