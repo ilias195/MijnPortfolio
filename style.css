@@ -14,12 +14,18 @@ body {
 }
 
 .header {
-    position: fixed;
-    right: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    background-color: transparent;
+     position: fixed;
+    top: 20px; /* beetje naar beneden */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    z-index: 1000;
+    padding: 15px 40px;
+
+    background: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -443,7 +449,7 @@ footer {
 
 /* ===== PAGINA ===== */
 .starlight-page{
-    padding: 120px 10%;
+     padding: 160px 10% 80px;
     background: radial-gradient(circle at 80% 20%, rgba(122,30,44,0.2), transparent 40%), #0A0A0A;
 }
 
@@ -687,95 +693,97 @@ mechanics-page {
 }
 
 
-/* ================= LAYOUT ================= */
+/* ===== PAGINA CONTAINER ===== */
 .mechanics-page {
-    padding-top: 70px; /* meer ruimte onder header */
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 120px 40px 60px;
 }
 
+
+/* ===== LAYOUT (VIDEO + TEKST) ===== */
 .mechanic-layout {
-    display: grid;
-    grid-template-columns: 1.3fr 1fr;
-    gap: 40px;
-    align-items: center;
-    min-height: 420px;
-}
-
-
-/* VIDEO */
-
-.mechanic-video {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap; /* zorgt dat het onder elkaar gaat op kleinere schermen */
+    width: 100%;
 }
 
+
+/* ===== VIDEO / IMAGE ===== */
+.mechanic-video {
+    flex: 1 1 600px;
+    max-width: 900px;
+}
+
+.mechanic-video img,
 .mechanic-video video {
     width: 100%;
-    max-width: 800px;
-    border-radius: 20px;
-    box-shadow: 0 0 35px rgba(122, 30, 44, 0.18);
+    height: auto;
+    display: block;
+    border-radius: 12px;
 }
 
 
-/* DESCRIPTION */
-
+/* ===== BESCHRIJVING (TEKST BOX) ===== */
 .mechanic-description {
-    background: rgba(15, 15, 15, 0.75);
-    border: 1px solid rgba(122, 30, 44, 0.2);
-    border-radius: 20px;
+    flex: 1 1 400px;
+    max-width: 600px;
+    width: 100%;
     padding: 30px;
-    box-shadow: 0 0 25px rgba(122, 30, 44, 0.12);
+    border-radius: 20px;
 }
 
 .mechanic-description h2 {
-    font-size: 28px;
-    margin-bottom: 18px;
-}
-
-.mechanic-description p {
-    font-size: 17px;
-    line-height: 1.7;
-    color: #d6d6d6;
+    margin-top: 0;
 }
 
 
-/* ================= RESPONSIVE ================= */
+/* ===== TABS (BOVENSTE KNOPPEN) ===== */
+.mechanic-tabs,
+.level-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
 
-@media (max-width: 1000px) {
+
+/* ===== LEVEL CONTENT (ELKE TAB) ===== */
+.level-content {
+    width: 100%;
+}
+
+
+/* ===== TABLET RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .mechanics-page {
+        padding: 100px 24px 50px;
+    }
+
     .mechanic-layout {
-        grid-template-columns: 1fr;
+        flex-direction: column; /* zet alles onder elkaar */
+        align-items: stretch;
+    }
+
+    .mechanic-video,
+    .mechanic-description {
+        max-width: 100%;
+        flex: 1 1 100%;
+    }
+}
+
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .mechanics-page {
+        padding: 90px 16px 40px;
     }
 
     .mechanic-description {
-        padding: 24px;
-    }
-
-    .mechanics-title {
-        font-size: 38px;
-    }
-}
-
-@media (max-width: 600px) {
-    .mechanics-page {
-        padding: 100px 6% 40px;
-    }
-
-    .mechanics-title {
-        font-size: 32px;
-    }
-
-    .mechanics-subtitle {
-        font-size: 16px;
-    }
-
-    .mechanic-tabs,
-    .level-tabs {
-        flex-direction: column;
-    }
-
-    .mechanic-tab,
-    .level-tab {
-        width: 100%;
-        text-align: center;
+        padding: 20px;
     }
 }
