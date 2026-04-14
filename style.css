@@ -10,25 +10,29 @@ body {
     background: radial-gradient(circle at 80% 50%, rgba(122, 30, 44, 0.25), transparent 40%),
         #0A0A0A;
     color: #EDEDED;
+    padding-top: 95px;
 
 }
 
 .header {
      position: fixed;
-    top: 20px; /* beetje naar beneden */
+    top: 20px;
     left: 50%;
     transform: translateX(-50%);
     width: 90%;
+    max-width: 1700px;
+    padding: 18px 40px;
     z-index: 1000;
-    padding: 15px 40px;
-
-    background: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-radius: 22px;
 }
 
 nav ul {
@@ -44,19 +48,26 @@ header .logo {
     text-decoration: none;
 }
 
-nav ul li a {
-    color: #ededed;
+.NavBar ul {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.NavBar a {
+    color: white;
     text-decoration: none;
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 35px;
-    transition: .3s;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
 }
 
 .NavBar a:hover,
 .NavBar a.active {
-    color: #7A1E2C;
-
+    color: #9b2234;
 }
 
 .home {
@@ -449,7 +460,7 @@ footer {
 
 /* ===== PAGINA ===== */
 .starlight-page{
-     padding: 160px 10% 80px;
+     padding: 60px 10% 80px;;
     background: radial-gradient(circle at 80% 20%, rgba(122,30,44,0.2), transparent 40%), #0A0A0A;
 }
 
@@ -698,8 +709,9 @@ mechanics-page {
     width: 100%;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 120px 40px 60px;
+   padding: 60px 100px 60px;
 }
+
 
 
 /* ===== LAYOUT (VIDEO + TEKST) ===== */
@@ -707,7 +719,7 @@ mechanics-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 40px;
+    gap: 20px;
     flex-wrap: wrap; /* zorgt dat het onder elkaar gaat op kleinere schermen */
     width: 100%;
 }
