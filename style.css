@@ -800,3 +800,60 @@ mechanics-page {
         padding: 20px;
     }
 }
+
+.coin-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin-icon {
+    width: 40px;
+    height: 40px;
+    
+    /* game effect */
+    filter: drop-shadow(0 0 6px rgba(255, 200, 0, 0.8));
+}
+.coin-icon:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.enemy-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.enemy-icon {
+    width: 40px;
+    height: 40px;
+    
+    /* game effect */
+    filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.8));
+}
+.enemy-icon:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.bee-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bee-icon {
+    width: 50px;
+    height: 50px;
+
+    /*  betere glow */
+    filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.6))
+            drop-shadow(0 0 12px rgba(255, 0, 150, 0.5));
+
+    /*  smooth animatie */
+    transition: transform 0.2s ease, filter 0.3s ease;
+
+    /*  idle effect (subtiel bewegen) */
+    animation: float 2.5s ease-in-out infinite;
+}
