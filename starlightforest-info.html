@@ -12,246 +12,327 @@
 <body>
 
     <<header class="header">
-    <a href="index.html" class="logo">Ilias</a>
+        <a href="index.html" class="logo">Ilias</a>
 
-    <nav class="NavBar">
-        <ul>
-            <li><a href="index.html">home</a></li>
-            <li><a href="about.html">about</a></li>
-            <li><a href="myprojects.html" class="active">projects</a></li>
-        </ul>
-    </nav>
-</header>
-    <section class="mechanics-page">
+        <nav class="NavBar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="about.html">about</a></li>
+                <li><a href="myprojects.html" class="active">projects</a></li>
+            </ul>
+        </nav>
+        </header>
+        <section class="mechanics-page">
 
-        <h1 class="mechanics-title">Mechanics</h1>
-        <p class="mechanics-subtitle">Een overzicht van de core mechanics in Starlight Forestt</p>
+            <h1 class="mechanics-title">Mechanics</h1>
+            <p class="mechanics-subtitle">Een overzicht van de core mechanics in Starlight Forestt</p>
 
-        <!-- bovenste tabs -->
-        <div class="mechanic-tabs">
-            <button class="mechanic-tab active" onclick="showMechanic(0)">Movement System</button>
-            <button class="mechanic-tab" onclick="showMechanic(1)">Enemy Behaviour</button>
-            <button class="mechanic-tab" onclick="showMechanic(2)">Coins & UI</button>
-        </div>
-
-        <!-- ================= MOVEMENT ================= -->
-        <div class="mechanic-content active">
-
-            <div class="level-tabs">
-                <button class="level-tab active" onclick="showLevel(event, 0, 0)">Level 1</button>
-                <button class="level-tab" onclick="showLevel(event, 0, 1)">Level 2</button>
-                <button class="level-tab" onclick="showLevel(event, 0, 2)">Level 3</button>
+            <!-- bovenste tabs -->
+            <div class="mechanic-tabs">
+                <button class="mechanic-tab active" onclick="showMechanic(0)">Movement System</button>
+                <button class="mechanic-tab" onclick="showMechanic(1)">Enemy Behaviour</button>
+                <button class="mechanic-tab" onclick="showMechanic(2)">Coins UI</button>
+                <button class="mechanic-tab" onclick="showMechanic(3)">Healthbar UI</button>
             </div>
 
-            <div class="level-content active">
-                <div class="mechanic-layout">
-                    <div class="mechanic-video">
-                        <img src="Videos/Jump/level.gif" alt="movement level 1">
-                    </div>
-                    <div class="mechanic-description">
-                        <h2>Movement System - Level 1</h2>
-                        <p>
-                            Voor level 1 heb ik een 2D movement systeem ontwikkeld met behulp van Rigidbody2D physics.
-                            De speler beweegt horizontaal via input en kan springen met een ground check gebaseerd op
-                            Physics2D.OverlapCircle. Daarnaast heb ik een double jump mechaniek toegevoegd via een
-                            extraJumpValue. Ik heb bewust gekozen voor een physics-based aanpak in plaats van
-                            transform-beweging, zodat botsingen en interacties stabiel en realistisch blijven. Alle
-                            belangrijke waarden zoals moveSpeed en jumpForce zijn instelbaar in de Inspector, zodat het
-                            systeem flexibel blijft.
-                        </p>
+            <!-- ================= MOVEMENT ================= -->
+            <div class="mechanic-content active">
+
+                <div class="level-tabs">
+                    <button class="level-tab active" onclick="showLevel(event, 0, 0)">Level 1</button>
+                    <button class="level-tab" onclick="showLevel(event, 0, 1)">Level 2</button>
+                    <button class="level-tab" onclick="showLevel(event, 0, 2)">Level 3</button>
+                </div>
+
+                <div class="level-content active">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/Jump/level.gif" alt="movement level 1">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Movement System - Level 1</h2>
+                            <p>
+                                Voor level 1 heb ik een 2D movement systeem ontwikkeld met behulp van Rigidbody2D
+                                physics.
+                                De speler beweegt horizontaal via input en kan springen met een ground check gebaseerd
+                                op
+                                Physics2D.OverlapCircle. Daarnaast heb ik een double jump mechaniek toegevoegd via een
+                                extraJumpValue. Ik heb bewust gekozen voor een physics-based aanpak in plaats van
+                                transform-beweging, zodat botsingen en interacties stabiel en realistisch blijven. Alle
+                                belangrijke waarden zoals moveSpeed en jumpForce zijn instelbaar in de Inspector, zodat
+                                het
+                                systeem flexibel blijft.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="level-content">
-                <div class="mechanic-layout">
-                    <div class="mechanic-video">
-                        <img src="Videos/Jump/space-level.gif" alt="space movement">
-                    </div>
-                    <div class="mechanic-description">
-                        <h2>Movement System - Level 2</h2>
-                        <p>
-                            In het space-level heb ik hetzelfde movement systeem hergebruikt, maar aangepast voor een
-                            lichtere en zwevende ervaring. Door gravity en sprongwaarden veranderen ontstaat er een
-                            andere gameplay-feel zonder de controls te veranderen. Dit zorgt voor variatie in
-                            spelervaring terwijl de besturing consistent blijft voor de speler.
-                    </div>
-                </div>
-            </div>
-
-            <div class="level-content">
-                <div class="mechanic-layout">
-                    <div class="mechanic-video">
-                        <img src="Videos/Jump/level3NatureJump.gif" alt="nature movement">
-                    </div>
-                    <div class="mechanic-description">
-                        <h2>Movement System - Level 3</h2>
-                        <p>
-                            IIn het nature-level ligt de nadruk meer op precies springen en goed timen. Daarom heb ik de
-                            beweging iets aangepast zodat het nauwkeuriger aanvoelt. Ik heb wel dezelfde basis gebruikt
-                            als in de andere levels, zodat de besturing herkenbaar blijft en de code overzichtelijk
-                            blijft.
-                        </p>
+                <div class="level-content">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/Jump/space-level.gif" alt="space movement">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Movement System - Level 2</h2>
+                            <p>
+                                In het space-level heb ik hetzelfde movement systeem hergebruikt, maar aangepast voor
+                                een
+                                lichtere en zwevende ervaring. Door gravity en sprongwaarden veranderen ontstaat er een
+                                andere gameplay-feel zonder de controls te veranderen. Dit zorgt voor variatie in
+                                spelervaring terwijl de besturing consistent blijft voor de speler.
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-
-        <!-- ================= ENEMY ================= -->
-        <div class="mechanic-content">
-
-            <div class="level-tabs">
-                <button class="level-tab active" onclick="showLevel(event, 1, 0)">Level 1</button>
-                <button class="level-tab" onclick="showLevel(event, 1, 1)">Level 2</button>
-                <button class="level-tab" onclick="showLevel(event, 1, 2)">Level 3</button>
-            </div>
-
-            <div class="level-content active">
-                <div class="mechanic-layout">
-                    <div class="mechanic-video">
-                        <img src="Videos/EnemyBehaviour/level1EnemyBehaviourVersie3.gif" alt="Level 1 enemy behaviour">
-                    </div>
-                    <div class="mechanic-description">
-                        <h2>Enemy Behaviour - Level 1</h2>
-                        <p>
-                            In level 1 heb ik de enemies ontworpen zowel als basisvijanden en basering op thema.
-                            Hierdoor wil ikde speler introduceren aan het
-                            spel. Hun beweging is eenvoudig en overzichtelijk gehouden, zodat de speler eerst kan wennen
-                            aan de gameplay.
-                            Voor hun navigatie heb ik gebruik gemaakt van lege GameObjects als waypoints. Tussen deze
-                            punten bewegen de enemies automatisch heen en weer. Hierdoor kan ik hun route eenvoudig
-                            aanpassen in Unity zonder wijzigingen in de code aan te brengen.
-                        </p>
+                <div class="level-content">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/Jump/level3NatureJump.gif" alt="nature movement">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Movement System - Level 3</h2>
+                            <p>
+                                IIn het nature-level ligt de nadruk meer op precies springen en goed timen. Daarom heb
+                                ik de
+                                beweging iets aangepast zodat het nauwkeuriger aanvoelt. Ik heb wel dezelfde basis
+                                gebruikt
+                                als in de andere levels, zodat de besturing herkenbaar blijft en de code overzichtelijk
+                                blijft.
+                            </p>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
-            <div class="level-content">
-                <div class="mechanic-layout">
-                    <div class="mechanic-video">
-                        <img src="Videos/EnemyBehaviour/level2EnemyBehaviourVersie3.gif" alt="Level 2 enemy behaviour">
-                    </div>
-                    <div class="mechanic-description">
-                        <h2>Enemy Behaviour - Level 2</h2>
-                        <p>
-                            In het space-level zijn de enemies aangepast aan het thema van de ruimte.
-                            Zowel hun visuele uitstraling als hun plaatsing in het level sluiten aan bij de omgeving.
-                            Ook hier heb ik lege GameObjects gebruikt om hun bewegingsroute te bepalen.
-                            Door deze aanpak blijft het systeem flexibel en eenvoudig herbruikbaar voor andere levels.
-                        </p>
+            <!-- ================= ENEMY ================= -->
+            <div class="mechanic-content">
+
+                <div class="level-tabs">
+                    <button class="level-tab active" onclick="showLevel(event, 1, 0)">Level 1</button>
+                    <button class="level-tab" onclick="showLevel(event, 1, 1)">Level 2</button>
+                    <button class="level-tab" onclick="showLevel(event, 1, 2)">Level 3</button>
+                </div>
+
+                <div class="level-content active">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/EnemyBehaviour/level1EnemyBehaviourVersie3.gif"
+                                alt="Level 1 enemy behaviour">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Enemy Behaviour - Level 1</h2>
+                            <p>
+                                In level 1 heb ik de enemies ontworpen zowel als basisvijanden en basering op thema.
+                                Hierdoor wil ikde speler introduceren aan het
+                                spel. Hun beweging is eenvoudig en overzichtelijk gehouden, zodat de speler eerst kan
+                                wennen
+                                aan de gameplay.
+                                Voor hun navigatie heb ik gebruik gemaakt van lege GameObjects als waypoints. Tussen
+                                deze
+                                punten bewegen de enemies automatisch heen en weer. Hierdoor kan ik hun route eenvoudig
+                                aanpassen in Unity zonder wijzigingen in de code aan te brengen.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="level-content">
-                <div class="mechanic-layout">
-                    <div class="mechanic-video">
-                        <img src="Videos/EnemyBehaviour/level3EnemyBehaviourVersie3.gif" alt="Level 3 enemy behaviour">
-                    </div>
-                    <div class="mechanic-description">
-                        <h2>Enemy Behaviour - Level 3</h2>
-                        <p>
-                            In het nature-level zijn de enemies strategischer geplaatst, zodat timing en precisie
-                            belangrijker worden.
-                            Hun bewegingspatroon is afgestemd op de platform-elementen in dit level.
-                            Net als in de andere levels gebruik ik lege GameObjects om hun navigatie vast te leggen.
-                            Dit zorgt voor een overzichtelijke en schaalbare structuur binnen mijn project
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ================= COINS ================= -->
-        <div class="mechanic-content">
-
-            <div class="level-tabs">
-                <button class="level-tab active" onclick="showLevel(event, 2, 0)">Level 1</button>
-                <button class="level-tab" onclick="showLevel(event, 2, 1)">Level 2</button>
-                <button class="level-tab" onclick="showLevel(event, 2, 2)">Level 3</button>
-            </div>
-
-            <div class="level-content active">
-                <div class="mechanic-layout">
-                    <div class="mechanic-video">
-                        <video controls>
-                            <source src="Img/coins1.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="mechanic-description">
-                        <h2>Coins & UI - Level 1</h2>
-                        <p>
-                            This part shows the basic coin collection system together with the first
-                            version of the user interface.
-                        </p>
+                <div class="level-content">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/EnemyBehaviour/level2EnemyBehaviourVersie3.gif"
+                                alt="Level 2 enemy behaviour">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Enemy Behaviour - Level 2</h2>
+                            <p>
+                                In het space-level zijn de enemies aangepast aan het thema van de ruimte.
+                                Zowel hun visuele uitstraling als hun plaatsing in het level sluiten aan bij de
+                                omgeving.
+                                Ook hier heb ik lege GameObjects gebruikt om hun bewegingsroute te bepalen.
+                                Door deze aanpak blijft het systeem flexibel en eenvoudig herbruikbaar voor andere
+                                levels.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="level-content">
-                <div class="mechanic-layout">
-                    <div class="mechanic-video">
-                        <video controls>
-                            <source src="Img/coins2.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="mechanic-description">
-                        <h2>Coins & UI - Level 2</h2>
-                        <p>
-                            In this stage I improved the visual feedback of the UI so the player gets
-                            clearer information while collecting coins.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="level-content">
-                <div class="mechanic-layout">
-                    <div class="mechanic-video">
-                        <video controls>
-                            <source src="Img/coins3.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="mechanic-description">
-                        <h2>Coins & UI - Level 3</h2>
-                        <p>
-                            This final version combines the collection system and interface into a more
-                            polished gameplay experience.
-                        </p>
+                <div class="level-content">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/EnemyBehaviour/level3EnemyBehaviourVersie3.gif"
+                                alt="Level 3 enemy behaviour">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Enemy Behaviour - Level 3</h2>
+                            <p>
+                                In het nature-level zijn de enemies strategischer geplaatst, zodat timing en precisie
+                                belangrijker worden.
+                                Hun bewegingspatroon is afgestemd op de platform-elementen in dit level.
+                                Net als in de andere levels gebruik ik lege GameObjects om hun navigatie vast te leggen.
+                                Dit zorgt voor een overzichtelijke en schaalbare structuur binnen mijn project
+                            </p>
+                        </div>
                     </div>
                 </div>
+
             </div>
 
-        </div>
+            <!-- ================= COINS ================= -->
+            <div class="mechanic-content">
 
-    </section>
+                <div class="level-tabs">
+                    <button class="level-tab active" onclick="showLevel(event, 2, 0)">Level 1</button>
+                    <button class="level-tab" onclick="showLevel(event, 2, 1)">Level 2</button>
+                    <button class="level-tab" onclick="showLevel(event, 2, 2)">Level 3</button>
+                </div>
 
-    <script>
-        const mechanicTabs = document.querySelectorAll(".mechanic-tab");
-        const mechanicContents = document.querySelectorAll(".mechanic-content");
+                <div class="level-content active">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/Coins/Level1-CoinMechanic.gif" alt="Level 1 coins">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Coins - Level 1</h2>
+                            <p>
+                                In level 1 heb ik een coin-systeem toegevoegd waarbij de speler objecten kan verzamelen
+                                tijdens het
+                                spelen. Wanneer een coin wordt geraakt, verdwijnt deze uit het level en wordt de score
+                                direct
+                                bijgewerkt in de canvas. Ik heb hiervoor gekozen omdat het de speler een extra doel
+                                geeft en de
+                                gameplay actiever maakt. Daarnaast heb ik normale coins icoon gebruikt die passen bij
+                                het thema van het level, zodat ze visueel aantrekkelijk zijn en goed
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-        function showMechanic(index) {
-            mechanicTabs.forEach(tab => tab.classList.remove("active"));
-            mechanicContents.forEach(content => content.classList.remove("active"));
+                <div class="level-content">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/Coins/level2CoinsMechanic.gif" alt="Level 2 coins">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Coins - Level 2</h2>
+                            <p>
+                                In level 2 heb ik hetzelfde coin-systeem hergebruikt, maar toegepast binnen een andere
+                                omgeving.
+                                Hierdoor blijft de mechanic herkenbaar voor de speler, terwijl het level zelf toch een
+                                andere
+                                uitstraling en ervaring biedt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
 
-            mechanicTabs[index].classList.add("active");
-            mechanicContents[index].classList.add("active");
-        }
+                <div class="level-content">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/Coins/level3Coins.gif" alt="Level 3 coins">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Coins - Level 3</h2>
+                            <p>
+                                In level 3 heb ik het coin-systeem opnieuw gebruikt als onderdeel van de gameplay. Door
+                                deze
+                                mechanic in meerdere levels terug te laten komen, ontstaat er herkenbaarheid in het spel
+                                en begrijpt
+                                de speler sneller wat het doel is.
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-        function showLevel(event, mechanicIndex, levelIndex) {
-            const currentMechanic = mechanicContents[mechanicIndex];
-            const levelTabs = currentMechanic.querySelectorAll(".level-tab");
-            const levelContents = currentMechanic.querySelectorAll(".level-content");
+            </div>
+                    <!-- ================= Healthbar ================= -->
+            <div class="mechanic-content">
 
-            levelTabs.forEach(tab => tab.classList.remove("active"));
-            levelContents.forEach(content => content.classList.remove("active"));
+                <div class="level-tabs">
+                    <button class="level-tab active" onclick="showLevel(event, 3, 0)">Level 1</button>
+                    <button class="level-tab" onclick="showLevel(event, 3, 1)">Level 2</button>
+                    <button class="level-tab" onclick="showLevel(event, 3, 2)">Level 3</button>
+                </div>
 
-            levelTabs[levelIndex].classList.add("active");
-            levelContents[levelIndex].classList.add("active");
-        }
-    </script>
+                <div class="level-content active">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/Healthbar/Level1Healthbar.gif" alt="healthbar level 1">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Healthbar - Level 1</h2>
+                            <p>
+                                In level 1 heb ik een healthbar toegevoegd zodat de speler direct kan zien hoeveel
+                                levens er nog
+                                over zijn. Ik heb hiervoor gekozen omdat dit duidelijke inzicht geeft tijdens het spelen
+                                en het
+                                makkelijker maakt om schade en gevaar te begrijpen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="level-content">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/Healthbar/Level2Healthbar.gif" alt="healthbar level 2">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Healthbar - Level 2</h2>
+                            <p>
+                                In level 2 blijft de healthbar hetzelfde werken, maar is deze aangepast aan het thema
+                                van het level. Hierdoor past hij beter bij de omgeving en blijft het voor de speler
+                                duidelijk, ook als de moeilijkheid verandert.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="level-content">
+                    <div class="mechanic-layout">
+                        <div class="mechanic-video">
+                            <img src="Videos/Healthbar/Level3Healthbar.gif" alt="healthbar level 3">
+                        </div>
+                        <div class="mechanic-description">
+                            <h2>Healthbar - Level 3</h2>
+                            <p>
+                                In level 3 helpt de healthbar bij de spannendere gameplay, waarbij timing en overleven
+                                belangrijker zijn. De vormgeving is aangepast aan het thema van het level, waardoor het
+                                goed past bij de omgeving en de speler overzicht houdt tijdens het spelen.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <script>
+            const mechanicTabs = document.querySelectorAll(".mechanic-tab");
+            const mechanicContents = document.querySelectorAll(".mechanic-content");
+
+            function showMechanic(index) {
+                mechanicTabs.forEach(tab => tab.classList.remove("active"));
+                mechanicContents.forEach(content => content.classList.remove("active"));
+
+                mechanicTabs[index].classList.add("active");
+                mechanicContents[index].classList.add("active");
+            }
+
+            function showLevel(event, mechanicIndex, levelIndex) {
+                const currentMechanic = mechanicContents[mechanicIndex];
+                const levelTabs = currentMechanic.querySelectorAll(".level-tab");
+                const levelContents = currentMechanic.querySelectorAll(".level-content");
+
+                levelTabs.forEach(tab => tab.classList.remove("active"));
+                levelContents.forEach(content => content.classList.remove("active"));
+
+                levelTabs[levelIndex].classList.add("active");
+                levelContents[levelIndex].classList.add("active");
+            }
+        </script>
 
 </body>
 
