@@ -7,11 +7,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <title>Starlight Forest - Info</title>
     <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="mechanics.css">
 </head>
 
 <body>
 
-    <<header class="header">
+    <header class="header">
         <a href="index.html" class="logo">Ilias</a>
 
         <nav class="NavBar">
@@ -22,7 +23,7 @@
             </ul>
         </nav>
         </header>
-        <section class="mechanics-page">
+        <section class="mechanics-page bg-level1">
 
             <h1 class="mechanics-title">Mechanics</h1>
             <p class="mechanics-subtitle">Een overzicht van de core mechanics in Starlight Forestt</p>
@@ -45,6 +46,7 @@
                 </div>
 
                 <div class="level-content active">
+
                     <div class="mechanic-layout">
                         <div class="mechanic-video">
                             <img src="Videos/Jump/level.gif" alt="movement level 1">
@@ -115,6 +117,7 @@
                 </div>
 
                 <div class="level-content active">
+
                     <div class="mechanic-layout">
                         <div class="mechanic-video">
                             <img src="Videos/EnemyBehaviour/level1EnemyBehaviourVersie3.gif"
@@ -328,31 +331,48 @@
 
         </section>
 
-        <script>
-            const mechanicTabs = document.querySelectorAll(".mechanic-tab");
-            const mechanicContents = document.querySelectorAll(".mechanic-content");
+       <script>
+    const mechanicTabs = document.querySelectorAll(".mechanic-tab");
+    const mechanicContents = document.querySelectorAll(".mechanic-content");
 
-            function showMechanic(index) {
-                mechanicTabs.forEach(tab => tab.classList.remove("active"));
-                mechanicContents.forEach(content => content.classList.remove("active"));
+    function showMechanic(index) {
+        mechanicTabs.forEach(tab => tab.classList.remove("active"));
+        mechanicContents.forEach(content => content.classList.remove("active"));
 
-                mechanicTabs[index].classList.add("active");
-                mechanicContents[index].classList.add("active");
-            }
+        mechanicTabs[index].classList.add("active");
+        mechanicContents[index].classList.add("active");
 
-            function showLevel(event, mechanicIndex, levelIndex) {
-                const currentMechanic = mechanicContents[mechanicIndex];
-                const levelTabs = currentMechanic.querySelectorAll(".level-tab");
-                const levelContents = currentMechanic.querySelectorAll(".level-content");
+        //  Reset naar level 1 background bij switch van mechanic
+        const section = document.querySelector(".mechanics-page");
+        section.classList.remove("bg-level1", "bg-level2", "bg-level3");
+        section.classList.add("bg-level1");
+    }
 
-                levelTabs.forEach(tab => tab.classList.remove("active"));
-                levelContents.forEach(content => content.classList.remove("active"));
+    function showLevel(event, mechanicIndex, levelIndex) {
+        const currentMechanic = mechanicContents[mechanicIndex];
+        const levelTabs = currentMechanic.querySelectorAll(".level-tab");
+        const levelContents = currentMechanic.querySelectorAll(".level-content");
 
-                levelTabs[levelIndex].classList.add("active");
-                levelContents[levelIndex].classList.add("active");
-            }
-        </script>
+        levelTabs.forEach(tab => tab.classList.remove("active"));
+        levelContents.forEach(content => content.classList.remove("active"));
 
+        levelTabs[levelIndex].classList.add("active");
+        levelContents[levelIndex].classList.add("active");
+
+        //  BACKGROUND SWITCH
+        const section = document.querySelector(".mechanics-page");
+
+        section.classList.remove("bg-level1", "bg-level2", "bg-level3");
+
+        if (levelIndex === 0) {
+            section.classList.add("bg-level1");
+        } else if (levelIndex === 1) {
+            section.classList.add("bg-level2");
+        } else if (levelIndex === 2) {
+            section.classList.add("bg-level3");
+        }
+    }
+</script>
 </body>
 
 </html>

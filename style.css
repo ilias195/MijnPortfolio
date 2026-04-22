@@ -609,7 +609,7 @@ footer {
     margin-top: 10px;
     color: #ccc;
 }
-mechanics-page {
+.mechanics-page {
     min-height: 100vh;
     padding: 120px 8% 60px;
 }
@@ -856,4 +856,24 @@ mechanics-page {
 
     /*  idle effect (subtiel bewegen) */
     animation: float 2.5s ease-in-out infinite;
+}
+
+.mechanics-page {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.4s ease;
+}
+
+.bg-level1 {
+    background-image: url("img/background/background\ level1.png");
+}
+
+.bg-level2 {
+    background-image: url("Img/background/backgroundlevel2.png");
+}
+
+.bg-level3 {
+    background-image: url("Img/background/backgroundlevel3.png");
 }
