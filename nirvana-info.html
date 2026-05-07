@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/mechanics.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <title>Nirvana - Mechanics</title>
+</head>
+
+<body>
+
+    <header class="header">
+        <a href="index.html" class="logo">Ilias</a>
+
+        <nav class="NavBar">
+            <ul>
+                <li><a href="index.html">home</a></li>
+                <li><a href="about.html">about</a></li>
+                <li><a href="myprojects.html" class="active">projects</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="mechanics-page bg-timer">
+
+        <h1 class="mechanics-title">Mechanics</h1>
+        <p class="mechanics-subtitle">Een overzicht van de core mechanics</p>
+
+        <div class="mechanic-tabs">
+            <button class="mechanic-tab active" onclick="showMechanic(0)">Timer</button>
+            <button class="mechanic-tab" onclick="showMechanic(1)">Sounds</button>
+        </div>
+
+        <!-- TIMER -->
+        <div class="mechanic-content active">
+            <div class="mechanic-layout">
+
+                <div class="mechanic-video">
+                    <img src="Videos/Timer/timer.gif" alt="Timer mechanic">
+                </div>
+
+                <div class="mechanic-description">
+                    <h2>Timer</h2>
+                    <p></p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- SOUNDS -->
+        <div class="mechanic-content">
+            <div class="mechanic-layout">
+
+                <div class="mechanic-video">
+                    <img src="Videos/Sounds/sounds.gif" alt="Sounds mechanic">
+                </div>
+
+                <div class="mechanic-description">
+                    <h2>Sounds</h2>
+                    <p></p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <script>
+        const mechanicTabs = document.querySelectorAll(".mechanic-tab");
+        const mechanicContents = document.querySelectorAll(".mechanic-content");
+        const section = document.querySelector(".mechanics-page");
+
+        function showMechanic(index) {
+            mechanicTabs.forEach(tab => tab.classList.remove("active"));
+            mechanicContents.forEach(content => content.classList.remove("active"));
+
+            mechanicTabs[index].classList.add("active");
+            mechanicContents[index].classList.add("active");
+
+            section.classList.remove("bg-timer", "bg-sounds");
+
+            if (index === 0) {
+                section.classList.add("bg-timer");
+            } else {
+                section.classList.add("bg-sounds");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

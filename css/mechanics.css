@@ -269,3 +269,13 @@
 .bg-level3 {
     background-image: url("../Img/background/backgroundlevel3.png");
 }
+
+/* ===== NIRVANA BACKGROUNDS ===== */
+
+.bg-timer {
+    background-image: url("../Img/background/nirvana2.png");
+}
+
+.bg-sounds {
+    background-image: url("../Img/background/Nirvana.png");
+}

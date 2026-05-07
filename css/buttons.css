@@ -83,27 +83,28 @@
 
 .play-btn {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
 
-    background: linear-gradient(135deg, #7A1E2C, #A3243B);
-    padding: 16px 30px;
-    border-radius: 12px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
 
-    color: white;
-    font-weight: 600;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     text-decoration: none;
-    font-size: 18px;
-
-    box-shadow: 0 0 20px rgba(122,30,44,0.6);
     transition: .3s;
 }
 
-.play-btn:hover {
-    transform: translate(-50%, -50%) scale(1.08);
-    box-shadow: 0 0 30px rgba(122,30,44,0.9);
+.play-btn img {
+    width: 120px;
+    height: auto;
+    display: block;
 }
+
+
 
 .info-btn {
     padding: 12px 26px;
@@ -113,4 +114,50 @@
     text-decoration: none;
     font-weight: 600;
     transition: .3s;
+}
+
+
+.game-preview {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.play-btn.starlight-btn {
+    position: absolute;
+
+    top: 52%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+.play-btn.starlight-btn img {
+    width: 450px;
+}
+/* HOVER ANIMATIE */
+
+.play-btn.starlight-btn:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+}
+/* ===== NIRVANA BUTTON ===== */
+
+.play-btn.nirvana-btn {
+    position: absolute;
+
+    top: 82%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.play-btn.nirvana-btn:hover {
+    transform: translate(-50%, -50%) scale(1.05);
+}
+.play-btn.nirvana-btn img {
+    width: 350px;
+}
+/* HOVER ANIMATIE */
+
+.play-btn.nirvana-btn:hover {
+    transform: translate(-50%, -50%) scale(1.08);
 }
