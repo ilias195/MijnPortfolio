@@ -1,0 +1,55 @@
+.header {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1700px;
+    padding: 18px 40px;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    border-radius: 22px;
+}
+
+nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+header .logo {
+    font-size: 24px;
+    font-weight: 200;
+    color: #ededed;
+    text-decoration: none;
+}
+
+.NavBar ul {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.NavBar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+.NavBar a:hover,
+.NavBar a.active {
+    color: #9b2234;
+}

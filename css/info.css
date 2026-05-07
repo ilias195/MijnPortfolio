@@ -1,0 +1,80 @@
+/* ===== INFO PAGINA ===== */
+.info-page {
+    min-height: 100vh;
+    padding: 120px 10%;
+    background: radial-gradient(circle at right, rgba(122,30,44,0.3), transparent 40%);
+}
+
+/* TITEL */
+.info-page h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.info-page .subtitle {
+    color: #7A1E2C;
+    margin-bottom: 40px;
+}
+
+/* VIDEO */
+.showreel {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.showreel video {
+    width: 800px;
+    max-width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(122,30,44,0.3);
+}
+
+/* TEKST */
+.info-text {
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.info-text h2 {
+    color: #7A1E2C;
+    margin-bottom: 10px;
+}
+
+.info-text p {
+    color: #cfcfcf;
+    line-height: 1.7;
+}
+
+/* GIF GRID */
+.gif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+/* KAARTJES */
+.gif-card {
+    background: #111;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(122,30,44,0.2);
+    transition: 0.3s;
+}
+
+.gif-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(122,30,44,0.4);
+}
+
+.gif-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.gif-card p {
+    margin-top: 10px;
+    color: #ccc;
+}

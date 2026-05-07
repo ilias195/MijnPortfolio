@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at 80% 50%, rgba(122, 30, 44, 0.25), transparent 40%),
+        #0A0A0A;
+    color: #EDEDED;
+    padding-top: 95px;
+    overflow-x: hidden;
+}
+
+.subtitle {
+    color: #AAAAAA;
+    margin-bottom: 40px;
+}

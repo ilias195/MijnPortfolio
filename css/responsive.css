@@ -1,0 +1,38 @@
+/* ===== TABLET RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    .mechanics-page {
+        padding: 100px 24px 50px;
+    }
+
+    .mechanic-layout {
+        flex-direction: column; /* zet alles onder elkaar */
+        align-items: stretch;
+    }
+
+    .mechanic-video,
+    .mechanic-description {
+        flex: 1 1 400px;
+        max-width: 600px;
+        width: 100%;
+        padding: 30px;
+        border-radius: 20px;
+
+        background: rgba(8, 15, 25, 0.55);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .mechanics-page {
+        padding: 90px 16px 40px;
+    }
+
+    .mechanic-description {
+        padding: 20px;
+    }
+}

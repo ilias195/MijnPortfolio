@@ -1,0 +1,271 @@
+.mechanics-page {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 60px 8% 60px;
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* donkere tussenlaag over de background */
+.mechanics-page::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+    z-index: 0;
+}
+
+/* extra diepte/vignette */
+.mechanics-page::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 35%, rgba(0,0,0,0.55) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* alles boven de overlay zetten */
+.mechanics-page > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* TITLES */
+.mechanics-title {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.mechanics-subtitle {
+    font-size: 18px;
+    color: #bdbdbd;
+    margin-bottom: 35px;
+}
+
+/* ================= MAIN TABS (Movement / Enemy / UI) ================= */
+
+.mechanic-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.mechanic-tab {
+    background: #111;
+    color: #EDEDED;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 12px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.mechanic-tab:hover {
+    background: #7A1E2C;
+    transform: translateY(-2px);
+}
+
+.mechanic-tab.active {
+    background: #7A1E2C;
+    box-shadow: 0 0 20px rgba(122, 30, 44, 0.35);
+}
+
+/* ================= LEVEL TABS ================= */
+
+.level-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.level-tab {
+    background: #111;
+    color: #EDEDED;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 10px 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.level-tab:hover {
+    background: #7A1E2C;
+}
+
+.level-tab.active {
+    background: #7A1E2C;
+    box-shadow: 0 0 15px rgba(122, 30, 44, 0.3);
+}
+
+/* ================= CONTENT SWITCHING ================= */
+
+.mechanic-content {
+    display: none;
+}
+
+.mechanic-content.active {
+    display: block;
+}
+
+.level-content {
+    display: none;
+    width: 100%;
+}
+
+.level-content.active {
+    display: block;
+}
+
+/* ===== LAYOUT (VIDEO + TEKST) ===== */
+.mechanic-layout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* zorgt dat het onder elkaar gaat op kleinere schermen */
+    width: 100%;
+}
+
+/* ===== VIDEO / IMAGE ===== */
+.mechanic-video {
+    flex: 1 1 600px;
+    max-width: 900px;
+
+    padding: 12px;
+    border-radius: 22px;
+
+    background: rgba(8, 15, 25, 0.35);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.mechanic-video img,
+.mechanic-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 12px;
+}
+
+/* ===== BESCHRIJVING (TEKST BOX) ===== */
+.mechanic-description {
+    max-width: 620px;
+    padding: 38px 42px;
+    border-radius: 24px;
+
+    background: rgba(5, 10, 16, 0.42);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow:
+        0 25px 60px rgba(0,0,0,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+.mechanic-description h2 {
+    font-size: 2rem;
+    line-height: 1.1;
+    margin-bottom: 22px;
+}
+
+.mechanic-description p {
+    max-width: 520px;
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: rgba(255,255,255,0.78);
+}
+
+.mechanic-description p::first-line {
+    color: white;
+    font-weight: 600;
+}
+
+/* ===== COIN ICONS ===== */
+.coin-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.coin-icon {
+    width: 40px;
+    height: 40px;
+
+    /* game effect */
+    filter: drop-shadow(0 0 6px rgba(255, 200, 0, 0.8));
+}
+
+.coin-icon:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+/* ===== ENEMY ICONS ===== */
+.enemy-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.enemy-icon {
+    width: 40px;
+    height: 40px;
+
+    /* game effect */
+    filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.8));
+}
+
+.enemy-icon:hover {
+    transform: scale(1.1);
+    transition: 0.2s;
+}
+
+.bee-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bee-icon {
+    width: 50px;
+    height: 50px;
+
+    /*  betere glow */
+    filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.6))
+            drop-shadow(0 0 12px rgba(255, 0, 150, 0.5));
+
+    /*  smooth animatie */
+    transition: transform 0.2s ease, filter 0.3s ease;
+
+    /*  idle effect (subtiel bewegen) */
+    animation: float 2.5s ease-in-out infinite;
+}
+
+/* ===== BACKGROUNDS PER LEVEL ===== */
+.bg-level1 {
+    background-image: url("../Img/background/background level1.png");
+}
+
+.bg-level2 {
+    background-image: url("../Img/background/backgroundlevel2.png");
+}
+
+.bg-level3 {
+    background-image: url("../Img/background/backgroundlevel3.png");
+}

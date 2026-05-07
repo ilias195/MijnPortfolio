@@ -1,0 +1,35 @@
+/* ===== PAGINA ===== */
+.starlight-page {
+    padding: 60px 10% 80px;
+    background: radial-gradient(circle at 80% 20%, rgba(122,30,44,0.2), transparent 40%), #0A0A0A;
+}
+
+/* TITEL */
+.starlight-title {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.starlight-subtitle {
+    color: #7A1E2C;
+    margin-bottom: 40px;
+}
+
+/* GAME PREVIEW */
+.game-preview {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto 60px;
+}
+
+.game-preview img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 0 40px rgba(122,30,44,0.4);
+}
+
+.extra-buttons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}

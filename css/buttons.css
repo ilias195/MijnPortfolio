@@ -1,0 +1,116 @@
+.btn-content a {
+    position: relative;
+    /* nodig voor ::before positie */
+    display: inline-flex;
+    align-items: center;
+    /* tekst verticaal centreren */
+    justify-content: center;
+    /* tekst horizontaal centreren */
+    width: 150px;
+    height: 100%;
+    background: #7A1E2C;
+    /* deze kleur geld voor beide knoppen */
+    border: 2px solid #7A1E2C;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #0A0A0A;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    overflow: hidden;
+    /* voorkomt dat animatie buiten knop komt */
+    z-index: 1;
+    transition: .5s;
+}
+
+.btn-content a:hover {
+    /* de knop "My Projects" hover kleur */
+    color: #7A1E2C;
+}
+
+.btn-content a:nth-child(2):hover {
+    background: #0A0A0A;
+    /* basis kleur voor de "Contact Me" knop bij hover */
+    color: #7A1E2C;
+    /* tekst kleur bij hover */
+}
+
+.btn-content a:nth-child(2)::before {
+    background: #A3243B;
+    /* animatie kleur voor de "Contact Me" knop */
+}
+
+.btn-content a:nth-child(2) {
+    background: transparent;
+    color: #7A1E2C;
+}
+
+.btn-content a::before {
+    /* pseudo element voor animatie en voegt een extra layer toe */
+    content: '';
+    /* maakt een pseudo element */
+    position: absolute;
+    top: 0;
+    left: -100%;
+    /* start buiten de knop */
+    width: 100%;
+    height: 100%;
+    background: #4A0F18;
+    /* animatie kleur voor de "My Projects" knop */
+    z-index: -1;
+    /* zorgt dat het achter de tekst blijft */
+    transition: .4s;
+}
+
+.btn-content a:hover::before {
+    left: 0;
+    /* zorgt ervoor dat de animatie van links anar rechts gaat */
+}
+
+.project-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #7A1E2C;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.project-btn:hover {
+    background: #A83246;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background: linear-gradient(135deg, #7A1E2C, #A3243B);
+    padding: 16px 30px;
+    border-radius: 12px;
+
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 18px;
+
+    box-shadow: 0 0 20px rgba(122,30,44,0.6);
+    transition: .3s;
+}
+
+.play-btn:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 30px rgba(122,30,44,0.9);
+}
+
+.info-btn {
+    padding: 12px 26px;
+    border: 2px solid #7A1E2C;
+    border-radius: 8px;
+    color: #7A1E2C;
+    text-decoration: none;
+    font-weight: 600;
+    transition: .3s;
+}
