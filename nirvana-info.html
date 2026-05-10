@@ -50,8 +50,14 @@
                 </div>
 
                 <div class="mechanic-description">
-                    <h2>Timer</h2>
-                    <p></p>
+                    <div class="timer-header">
+                        <img src="Img/icoons/timerfull.png" class="timer-icon">
+                        <h2>Timer</h2>
+                    </div>
+                    <p>Ik heb deze timer gemaakt met een UI Image in Unity. De timer telt af door de fillAmount van de
+                        cirkel langzaam kleiner te maken op basis van de resterende tijd. Daarnaast verandert de kleur
+                        automatisch tijdens het aftellen met behulp van een Gradient. Met de functies StartTimer() en
+                        ResetTimer() kan ik de timer makkelijk starten en resetten.</p>
                 </div>
 
             </div>
@@ -61,13 +67,41 @@
         <div class="mechanic-content">
             <div class="mechanic-layout">
 
-                <div class="mechanic-video">
-                    <img src="Videos/Sounds/sounds.gif" alt="Sounds mechanic">
-                </div>
+               <div class="mechanic-video">
+    <img src="Videos/Sound/Sound.gif" alt="Sounds mechanic">
+
+   <div class="audio-section">
+
+    <h3>Audio voorbeelden</h3>
+
+    <div class="audio-player">
+        <p>Ambience sound</p>
+
+        <audio controls>
+            <source src="Videos/Sound/mp3/Ambience&drones.wav" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <div class="audio-player">
+        <p>Voice sound</p>
+
+        <audio controls>
+            <source src="Videos/Sound/mp3/Voices&Drones.wav" type="audio/mpeg">
+        </audio>
+    </div>
+
+</div>
+</div>
 
                 <div class="mechanic-description">
                     <h2>Sounds</h2>
-                    <p></p>
+                    <p>Ik heb voor de audio meerdere AudioSources in Unity gebruikt, zoals ambience, voices en drone
+                        sounds. Deze geluiden spelen tegelijk af en veranderen automatisch van volume tijdens het
+                        spelen. Met behulp van Mathf.Lerp lopen de overgangen vloeiend in elkaar over. De audio reageert
+                        op hoeveel thoughts er nog over zijn in het spel. Als er veel thoughts over zijn hoor je vooral
+                        rustige ambience, en wanneer het minder wordt komen de voices en drone sounds sterker naar voren
+                        om meer spanning te creëren.
+                    </p>
                 </div>
 
             </div>

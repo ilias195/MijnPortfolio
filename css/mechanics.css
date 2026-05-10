@@ -256,7 +256,35 @@
     /*  idle effect (subtiel bewegen) */
     animation: float 2.5s ease-in-out infinite;
 }
+.healthbar-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
 
+    margin-bottom: 24px;
+}
+
+.healthbar-small-icon {
+    width: 85px;
+    height: 85px;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.18));
+
+    transition:
+        transform 0.3s ease,
+        filter 0.3s ease;
+}
+
+.healthbar-small-icon:hover {
+    transform: scale(1.08) rotate(-3deg);
+
+    filter:
+        drop-shadow(0 0 18px rgba(255,255,255,0.3))
+        drop-shadow(0 0 30px rgba(255,255,255,0.12));
+}
 /* ===== BACKGROUNDS PER LEVEL ===== */
 .bg-level1 {
     background-image: url("../Img/background/background level1.png");
@@ -278,4 +306,97 @@
 
 .bg-sounds {
     background-image: url("../Img/background/Nirvana.png");
+}
+
+
+/* ===== TIMER HEADER ===== */
+
+.timer-header{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.timer-icon{
+    width: 75px;
+    height: 75px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 10px rgba(255, 180, 255, 0.4))
+        drop-shadow(0 0 25px rgba(180, 120, 255, 0.35));
+
+    transition: 0.3s ease;
+}
+
+.timer-icon:hover{
+    transform: scale(1.08) rotate(4deg);
+}
+
+.timer-header h2{
+    font-size: 2.3rem;
+    margin: 0;
+}
+
+/* ===== AUDIO SECTION ===== */
+
+.audio-section {
+    margin-top: 28px;
+}
+
+.audio-section h3 {
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+    color: white;
+}
+
+/* AUDIO CARD */
+
+.audio-player {
+    padding: 18px;
+    margin-bottom: 18px;
+
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition: 0.3s ease;
+}
+
+.audio-player:hover {
+    transform: translateY(-3px);
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.25),
+        0 0 25px rgba(122,30,44,0.18);
+}
+
+/* TITEL */
+
+.audio-player p {
+    margin-bottom: 12px;
+
+    font-size: 1rem;
+    font-weight: 600;
+
+    color: white;
+}
+
+/* AUDIO PLAYER */
+
+.audio-player audio {
+    width: 100%;
+
+    border-radius: 12px;
+
+    opacity: 0.92;
 }
