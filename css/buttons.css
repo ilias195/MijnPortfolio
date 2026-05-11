@@ -161,3 +161,13 @@
 .play-btn.nirvana-btn:hover {
     transform: translate(-50%, -50%) scale(1.08);
 }
+
+.play-btn.untitled-goose-btn{
+    position: absolute;
+     top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.play-btn.untitled-goose-btn img {
+    width: 220px;
+}

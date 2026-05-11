@@ -62,3 +62,7 @@
 .project-card:first-child {
     grid-column: span 2;
 }
+
+.goose-img {
+    object-position: center 35%;
+}
