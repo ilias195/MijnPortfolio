@@ -188,3 +188,176 @@
         width: 40%;
     }
 }
+/* ===== ABOUT RESPONSIVE ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+    .about {
+        flex-direction: column;
+        align-items: center;
+        padding: 120px 8% 70px;
+        gap: 40px;
+    }
+
+    .about-content {
+        max-width: 720px;
+        width: 100%;
+    }
+
+    .about-img {
+        margin: 0;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .about-img img {
+        width: 520px;
+        max-width: 100%;
+    }
+}
+
+/* Mobiel */
+/* ===== ABOUT MOBILE ===== */
+@media (max-width: 600px) {
+    .about {
+        display: flex;
+        flex-direction: column;
+        padding: 105px 7% 55px;
+        gap: 28px;
+    }
+
+    .about-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .about-content h1 {
+        order: 1;
+        font-size: 42px;
+        line-height: 1.1;
+        margin-bottom: 25px;
+    }
+
+    .about-img {
+        order: 2;
+        width: 100%;
+        margin: 0 0 30px;
+        justify-content: center;
+    }
+
+    .about-img img {
+        width: 100%;
+        max-width: 360px;
+        border-radius: 18px;
+    }
+
+    .about-content h2,
+    .about-content p,
+    .about-skills,
+    .cv-btn {
+        order: 3;
+    }
+
+    .about-content h2 {
+        font-size: 22px;
+        line-height: 1.25;
+        margin-top: 28px;
+        margin-bottom: 10px;
+    }
+
+    .about-content p {
+        font-size: 17px;
+        line-height: 1.75;
+    }
+
+    .cv-btn {
+        margin-top: 25px;
+        max-width: 260px;
+        text-align: center;
+    }
+}
+
+/* ===== INFO / MECHANICS MOBILE ===== */
+@media (max-width: 600px) {
+    .mechanics-page {
+        padding: 105px 22px 50px;
+        overflow: visible;
+    }
+
+    .mechanics-title {
+        font-size: 42px;
+        line-height: 1.05;
+        margin-bottom: 14px;
+    }
+
+    .mechanics-subtitle {
+        font-size: 17px;
+        line-height: 1.4;
+        margin-bottom: 28px;
+    }
+
+    .mechanic-tabs {
+        margin-bottom: 28px;
+    }
+
+    .mechanic-tab {
+        padding: 14px 24px;
+        border-radius: 14px;
+        font-size: 15px;
+    }
+
+    .mechanic-layout {
+        flex-direction: column;
+        gap: 26px;
+        align-items: center;
+    }
+
+    .mechanic-video {
+        width: 100%;
+        max-width: 420px;
+        padding: 10px;
+        border-radius: 22px;
+    }
+
+    .mechanic-video img,
+    .mechanic-video video {
+        border-radius: 16px;
+    }
+
+    .mechanic-description {
+        width: 100%;
+        max-width: 420px;
+        padding: 28px 24px;
+        border-radius: 24px;
+    }
+
+    .timer-header {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        margin-bottom: 24px;
+    }
+
+    .farmer-icon,
+    .timer-icon {
+        width: 65px;
+        height: 65px;
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    .timer-header h2,
+    .mechanic-description h2 {
+        font-size: 34px;
+        line-height: 1.1;
+        margin: 0;
+    }
+
+    .mechanic-description p {
+        font-size: 17px;
+        line-height: 1.75;
+        max-width: 100%;
+    }
+}
