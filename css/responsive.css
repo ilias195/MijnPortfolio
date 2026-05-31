@@ -1,38 +1,190 @@
-/* ===== TABLET RESPONSIVE ===== */
+/* ===== TABLET ===== */
 @media (max-width: 1024px) {
-    .mechanics-page {
-        padding: 100px 24px 50px;
+    body {
+        padding-top: 110px;
     }
 
-    .mechanic-layout {
-        flex-direction: column; /* zet alles onder elkaar */
-        align-items: stretch;
+    .header {
+        width: 92%;
+        padding: 16px 28px;
+        top: 16px;
     }
 
-    .mechanic-video,
-    .mechanic-description {
-        flex: 1 1 400px;
-        max-width: 600px;
-        width: 100%;
-        padding: 30px;
-        border-radius: 20px;
+    .NavBar ul {
+        gap: 32px;
+    }
 
-        background: rgba(8, 15, 25, 0.55);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+    .projects-page {
+        padding: 60px 7%;
+    }
 
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    .projects-page h1 {
+        font-size: 48px;
+    }
+
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .project-card:first-child {
+        grid-column: span 2;
+    }
+
+    .project-card img {
+        height: 220px;
     }
 }
 
-/* ===== MOBILE RESPONSIVE ===== */
+
+/* ===== MOBILE ===== */
 @media (max-width: 600px) {
-    .mechanics-page {
-        padding: 90px 16px 40px;
+    body {
+        padding-top: 95px;
     }
 
-    .mechanic-description {
-        padding: 20px;
+    .header {
+        width: 92%;
+        top: 12px;
+        padding: 14px 18px;
+        border-radius: 18px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .NavBar ul {
+        gap: 18px;
+    }
+
+    .NavBar a {
+        font-size: 0.95rem;
+    }
+
+    .projects-page {
+        padding: 35px 6% 60px;
+    }
+
+    .projects-page h1 {
+        font-size: 42px;
+        line-height: 1.1;
+        margin-bottom: 12px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        margin-bottom: 34px;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .project-card,
+    .project-card:first-child {
+        grid-column: span 1;
+        border-radius: 22px;
+    }
+
+    .project-card img {
+        height: 230px;
+        object-fit: cover;
+        border-radius: 22px 22px 0 0;
+    }
+
+    .project-content {
+        padding: 24px;
+    }
+
+    .project-content h3 {
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+    .project-content p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .project-btn {
+        margin-top: 10px;
+        padding: 12px 20px;
+        font-size: 16px;
+    }
+}
+@media (max-width: 600px) {
+    .home {
+        min-height: calc(100vh - 110px);
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        padding: 20px 8% 60px;
+        gap: 20px;
+    }
+
+    .home-content {
+        max-width: 52%;
+        margin: 0;
+        text-align: left;
+        z-index: 2;
+    }
+
+    .home-content h1 {
+        font-size: 38px;
+    }
+
+    .home-content h3 {
+        font-size: 24px;
+    }
+
+    .home-content p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+
+    .home-content .btn-content {
+        width: 100%;
+        gap: 12px;
+        justify-content: flex-start;
+    }
+
+    .btn-content a {
+        width: 135px;
+        height: 48px;
+        font-size: 15px;
+    }
+
+    .home-img {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex: 1;
+        margin: 0;
+    }
+
+    .home-img img {
+        width: 300px;
+        max-width: none;
+    }
+    
+}
+@media (max-width: 600px) {
+    
+    .game-preview {
+        padding: 0 8%;
+    }
+
+    .play-btn.starlight-btn img {
+        width: 100%;
+    }
+    .play-btn.nirvana-btn img {
+        width: 80%;
+    }
+    .play-btn.untitled-goose-btn img{
+        width: 40%;
     }
 }

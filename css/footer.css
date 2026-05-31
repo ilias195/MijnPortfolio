@@ -1,10 +1,18 @@
-footer {
+.footer {
+    width: 100%;
     background: #050505;
     padding: 40px;
     text-align: center;
     border-top: 1px solid #7A1E2C;
+    position: relative;
+    z-index: 10;
+    clear: both;
 }
 
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
 .footer-icons {
     margin-top: 20px;
     display: flex;

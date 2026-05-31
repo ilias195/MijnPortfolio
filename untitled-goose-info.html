@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/mechanics.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <title>Untitled Goose - Mechanics</title>
+</head>
+
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo">Ilias</a>
+
+    <nav class="NavBar">
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="myprojects.html" class="active">projects</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="mechanics-page bg-farmer">
+
+    <h1 class="mechanics-title">Mechanics</h1>
+    <p class="mechanics-subtitle">Een overzicht van de core mechanics in Untitled Goose</p>
+
+    <div class="mechanic-tabs">
+        <button class="mechanic-tab active">Farmer Walk</button>
+    </div>
+
+    <div class="mechanic-content active">
+        <div class="mechanic-layout">
+
+            <div class="mechanic-video">
+                <video autoplay loop muted playsinline>
+                    <source src="Videos/Farmer/Farmer.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="mechanic-description">
+
+                <div class="farmer-header">
+                    <img src="Img/icoons/Farmer.png" class="farmer-icon" alt="Farmer mechanic icon">
+                    <h2>Farmer Walk</h2>
+                </div>
+
+                <p>
+                    Ik heb de Farmer Walk gemaakt met waypoints in de scene.
+                    De farmer beweegt automatisch tussen verschillende punten in het level. 
+                    Hierdoor kan ik makkelijk bepalen welke route hij volgt en hoe snel hij beweegt.
+                    Tijdens het lopen wordt de walk-animatie afgespeeld. 
+                    Bij bepaalde waypoints voert de farmer ook acties uit, zoals planten of oogsten. Deze acties worden geactiveerd op basis van zijn locatie,
+                     waardoor de farmer automatisch de juiste taak uitvoert.
+                </p>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+</body>
+
+</html>

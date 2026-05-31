@@ -316,6 +316,10 @@
 .bg-sounds {
     background-image: url("../Img/background/Nirvana.png");
 }
+/* ===== FARMER BACKGROUNDS ===== */
+.bg-farmer {
+    background-image: url("../Img/background/UnitledGoose.png");
+}
 
 
 /* ===== TIMER HEADER ===== */
@@ -408,4 +412,33 @@
     border-radius: 12px;
 
     opacity: 0.92;
+}
+
+.farmer-header{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.farmer-icon{
+     width: 120px;
+    height: 120px;
+
+    object-fit: contain;
+
+    filter:
+        drop-shadow(0 0 10px rgba(8, 143, 42, 0.4))
+        drop-shadow(0 0 25px rgba(7, 92, 44, 0.35));
+
+    transition: 0.3s ease;
+}
+
+.farmer-icon:hover{
+    transform: scale(1.08) rotate(4deg);
+}
+
+.farmer-header h2{
+    font-size: 2.3rem;
+    margin: 0;
 }
