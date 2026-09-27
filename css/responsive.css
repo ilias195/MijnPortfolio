@@ -361,3 +361,44 @@
         max-width: 100%;
     }
 }
+
+@media (max-width: 600px) {
+
+    .goose-page .project-details {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 25px;
+    }
+
+    .goose-page .project-detail {
+        padding: 18px 15px;
+        border-bottom: 1px solid #252525;
+    }
+
+    .goose-page .project-detail:nth-child(2) {
+        border-right: none;
+    }
+
+    .goose-page .project-detail:nth-child(3),
+    .goose-page .project-detail:nth-child(4) {
+        border-bottom: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .team-section {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .team-section img {
+        height: auto;
+        max-height: 350px;
+
+        object-fit: cover;
+    }
+
+    .team-caption {
+        font-size: 12px;
+    }
+}

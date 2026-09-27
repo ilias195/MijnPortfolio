@@ -1,0 +1,28 @@
+/* ===== TEAM PHOTO ===== */
+
+.team-section {
+    width: 75%;
+    max-width: 850px;
+    margin: 0 auto 45px;
+}
+
+.team-section img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 10px;
+    border: 1px solid #292929;
+}
+
+.team-caption {
+    margin-top: 10px;
+
+    color: #888;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

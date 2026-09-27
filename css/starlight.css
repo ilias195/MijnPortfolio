@@ -1,10 +1,20 @@
-/* ===== PAGINA ===== */
+/* ===== STARLIGHT FOREST PAGE ===== */
+
 .starlight-page {
-    padding: 60px 10% 80px;
-    background: radial-gradient(circle at 80% 20%, rgba(122,30,44,0.2), transparent 40%), #0A0A0A;
+    padding: 60px 10% 100px;
+
+    background:
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(122, 30, 44, 0.2),
+            transparent 40%
+        ),
+        #0A0A0A;
 }
 
-/* TITEL */
+
+/* ===== TITEL ===== */
+
 .starlight-title {
     font-size: 48px;
     margin-bottom: 10px;
@@ -12,24 +22,267 @@
 
 .starlight-subtitle {
     color: #7A1E2C;
-    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: 600;
+
+    margin-bottom: 45px;
 }
 
-/* GAME PREVIEW */
-.game-preview {
-    position: relative;
+
+/* ===== PROJECT BESCHRIJVING ===== */
+
+.project-description {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto 35px;
+
+    padding-left: 25px;
+
+    border-left: 2px solid #9D2438;
+}
+
+.project-description p {
     max-width: 900px;
-    margin: 0 auto 60px;
+
+    color: #B5B5B5;
+
+    font-size: 17px;
+    line-height: 1.8;
+
+    margin: 0;
 }
 
-.game-preview img {
-    width: 100%;
-    border-radius: 16px;
-   
+
+/* ===== GAMEPLAY VIDEO ===== */
+
+.showcase-video {
+    width: 90%;
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+    background: #080808;
+
+    border: 1px solid #292929;
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
 }
+
+.showcase-video video {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    background: #000;
+}
+
+
+/* ===== ITCH.IO BUTTON ===== */
+
+.external-game-btn {
+    display: block;
+
+    width: fit-content;
+
+    margin: 30px auto 0;
+
+    padding: 15px 25px;
+
+    color: #FFFFFF;
+    background: transparent;
+
+    border: 1px solid #9D2438;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    letter-spacing: 1.3px;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.external-game-btn:hover {
+    background: #9D2438;
+
+    transform: translateY(-3px);
+}
+
+
+/* ===== MIJN BIJDRAGE BUTTON ===== */
 
 .extra-buttons {
-    margin-top: 20px;
     display: flex;
     justify-content: center;
+
+    margin-top: 20px;
+}
+
+.info-btn {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 24px;
+
+    color: #FFFFFF;
+    background: #9D2438;
+
+    border: 1px solid #9D2438;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.3s ease;
+}
+
+.info-btn:hover {
+    background: #B52B43;
+    border-color: #B52B43;
+
+    transform: translateY(-3px);
+}
+
+
+/* ===== TABLET ===== */
+
+@media (max-width: 900px) {
+
+    .starlight-page {
+        padding: 50px 6% 80px;
+    }
+
+    .starlight-title {
+        font-size: 42px;
+    }
+
+    .project-description,
+    .showcase-video {
+        width: 100%;
+    }
+}
+
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .starlight-page {
+        padding: 40px 20px 70px;
+    }
+
+    .starlight-title {
+        font-size: 36px;
+    }
+
+    .starlight-subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+
+    /* DESCRIPTION */
+
+    .project-description {
+        width: 100%;
+
+        padding-left: 16px;
+
+        margin-bottom: 25px;
+    }
+
+    .project-description p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+
+    /* VIDEO */
+
+    .showcase-video {
+        width: 100%;
+
+        border-radius: 6px;
+    }
+
+
+    /* BUTTONS */
+
+    .external-game-btn {
+        margin-top: 22px;
+
+        padding: 13px 20px;
+
+        font-size: 13px;
+    }
+
+    .extra-buttons {
+        margin-top: 15px;
+    }
+
+    .info-btn {
+        padding: 13px 20px;
+
+        font-size: 13px;
+    }
+}
+
+/* UNTITLED GOOSE - PROJECT DETAILS */
+
+.goose-page .project-details {
+    width: 100%;
+    max-width: 900px;
+    margin: 35px auto 30px;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+
+    background: #111111;
+    border: 1px solid #252525;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.goose-page .project-detail {
+    padding: 22px 18px;
+    text-align: left;
+    border-right: 1px solid #252525;
+}
+
+.goose-page .project-detail:last-child {
+    border-right: none;
+}
+
+.goose-page .project-detail span {
+    display: block;
+
+    color: #777;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+
+    margin-bottom: 8px;
+}
+
+.goose-page .project-detail p {
+    margin: 0;
+
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
 }
