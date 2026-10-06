@@ -27,10 +27,22 @@ nav ul {
 }
 
 header .logo {
-    font-size: 24px;
-    font-weight: 200;
-    color: #ededed;
+    width: 130px;
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
     text-decoration: none;
+}
+
+header .logo img {
+    width: 190px;
+    max-width: none;
+    height: auto;
+    display: block;
 }
 
 .NavBar ul {

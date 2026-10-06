@@ -9,6 +9,13 @@
         padding: 16px 28px;
         top: 16px;
     }
+    
+@media (max-width: 900px) {
+    header .logo img {
+        height: 60px;
+        width: auto;
+    }
+}
 
     .NavBar ul {
         gap: 32px;
@@ -50,8 +57,10 @@
         border-radius: 18px;
     }
 
-    .logo {
-        font-size: 22px;
+   @media (max-width: 600px) {
+    header .logo img {
+        height: 50px;
+        width: auto;
     }
 
     .NavBar ul {
