@@ -1,5 +1,5 @@
-.git
-.git/**
-.wrangler
-.wrangler/**
+**/.git
+**/.git/**
+**/.wrangler
+**/.wrangler/**
 objects.txt
