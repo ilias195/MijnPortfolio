@@ -1,13 +1,7 @@
 {
-  "name": "mijnportfolio",
-  "compatibility_date": "2026-05-10",
-
-  "assets": {
-    "directory": ".",
-    "exclude": [
-      ".git/**",
-      "Videos/Timer/Timer.gif",
-      "Videos/Sound/Sound.gif"
-    ]
-  }
+    "name": "mijnportfolio",
+    "compatibility_date": "2026-05-10",
+    "assets": {
+        "directory": "."
+    }
 }
