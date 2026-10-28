@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/mechanics.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <title>Nova Striker - Mechanics</title>
+</head>
+<body>
+<header class="header">
+    <a href="index.html" class="logo">
+        <img src="Img/logo/tijdelijke-logo.png" alt="IK logo">
+    </a>
+    <nav class="NavBar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="myprojects.html" class="active">Projects</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="mechanics-page bg-nova">
+    <h1 class="mechanics-title">Mechanics</h1>
+    <p class="mechanics-subtitle">
+        Een overzicht van de mechanics die ik heb ontwikkeld voor Nova Striker
+    </p>
+
+    <div class="mechanic-tabs">
+        <button class="mechanic-tab active">Mijn bijdrage</button>
+    </div>
+
+    <div class="mechanic-content active">
+        <div class="mechanic-layout">
+            <div class="mechanic-video">
+                <img src="Img/Project/Nova-Striker.png" alt="Nova Striker gameplay">
+            </div>
+
+            <div class="mechanic-description">
+                <h2>Mijn bijdrage</h2>
+                <p>
+                    Ik heb een GameManager gebruikt om de scores van beide spelers bij te houden. 
+                    Wanneer een speler doodgaat, krijgt de tegenstander een punt.
+                     Daarna worden de posities, beweging en levens van beide spelers gereset, zodat een nieuwe ronde begint.
+                      De eerste speler met twee punten wint. Vervolgens wordt automatisch het eindscherm geladen met de winnaar
+                       en de eindscore.
+
+                </p>
+                
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
