@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-       <link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/buttons.css">
-<link rel="stylesheet" href="css/home.css">
-<link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" href="css/responsive.css">
-        <title>MijnPortfolio</title>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <title>MijnPortfolio</title>
+</head>
 
 <body>
 
+    <!-- ================= HEADER ================= -->
+
     <header class="header">
+
         <a href="#home" class="logo">
-             <img src="Img/logo/tijdelijke-logo.png" alt="IK logo">
+            <img src="Img/logo/tijdelijke-logo.png" alt="IK logo">
         </a>
 
         <nav class="NavBar">
@@ -28,49 +34,274 @@
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="myprojects.html">Projects</a></li>
-
             </ul>
         </nav>
+
     </header>
-    <section class="home">
+
+
+    <!-- ================= HOME ================= -->
+
+    <section class="home" id="home">
 
         <div class="home-content">
+
             <h1>Ilias Kamil</h1>
+
             <h3>Game Developer</h3>
-            <p>Welkom op mijn portfolio. ik ben een gedreven game developer en heb een passie voor het ontwikkel van
-                games.</p>
+
+            <p>
+                Welkom op mijn portfolio. ik ben een gedreven game developer
+                en heb een passie voor het ontwikkel van games.
+            </p>
 
             <div class="btn-content">
-                <a href="myprojects.html" class="btn">My Projects</a>
-                <a href="about.html" class="btn">About Me</a>
+
+                <a href="myprojects.html" class="btn">
+                    My Projects
+                </a>
+
+                <a href="about.html" class="btn">
+                    About Me
+                </a>
+
             </div>
+
         </div>
 
         <div class="home-img">
             <img src="Img/portfoliofoto2.png" alt="Ilias">
         </div>
 
+    </section>
+
+
+    <!-- ==================================================
+                     FEATURED PROJECTS
+    ================================================== -->
+
+    <section class="featured-projects">
+
+        <div class="featured-heading">
+
+            <h2>Featured Projects</h2>
+
+            <p>A selection of my best game projects</p>
+
+        </div>
+
+
+        <!-- ================= PROJECT CARDS ================= -->
+
+        <div class="featured-grid" id="featured-grid">
+
+
+            <!-- ================= VR GAME ================= -->
+
+            <article class="featured-card" data-project="vr">
+
+                <div class="featured-preview featured-preview-vr">
+
+                    <!-- VERVANG HET PAD DOOR JE EIGEN VR SCREENSHOT -->
+                    <img
+                        src="Img/projects/vr-game.png"
+                        alt="VR Game gameplay"
+                        loading="lazy"
+                        onerror="this.remove()">
+
+                    <div class="featured-preview-fallback">
+                        <i class="fa-solid fa-vr-cardboard"></i>
+                        <span>VR GAME</span>
+                    </div>
+
+                </div>
+
+                <div class="featured-card-content">
+
+                    <h3>VR Game</h3>
+
+                    <p>
+                        Een VR-project waarin ik interactieve gameplay
+                        en verschillende XR-mechanics heb ontwikkeld.
+                    </p>
+
+                    <a href="myprojects.html" class="featured-card-btn">
+                        View Project
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= STARLIGHT FOREST ================= -->
+
+            <article class="featured-card" data-project="starlight">
+
+                <div class="featured-preview featured-preview-starlight">
+
+                    <!-- VERVANG HET PAD DOOR JE EIGEN STARLIGHT SCREENSHOT -->
+                    <img
+                        src="Img/projects/starlight-forest.png"
+                        alt="Starlight Forest gameplay"
+                        loading="lazy"
+                        onerror="this.remove()">
+
+                    <div class="featured-preview-fallback">
+                        <i class="fa-solid fa-tree"></i>
+                        <span>STARLIGHT FOREST</span>
+                    </div>
+
+                </div>
+
+                <div class="featured-card-content">
+
+                    <h3>Starlight Forest</h3>
+
+                    <p>
+                        Een 2D-platformgame met verschillende levels,
+                        vijanden en gameplay mechanics.
+                    </p>
+
+                    <a href="starlightforest-info.html" class="featured-card-btn">
+                        View Project
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- ================= THE WAY TO NIRVANA ================= -->
+
+            <article class="featured-card" data-project="nirvana">
+
+                <div class="featured-preview featured-preview-nirvana">
+
+                    <!-- VERVANG HET PAD DOOR JE EIGEN NIRVANA SCREENSHOT -->
+                    <img
+                        src="Img/projects/the-way-to-nirvana.png"
+                        alt="The Way to Nirvana gameplay"
+                        loading="lazy"
+                        onerror="this.remove()">
+
+                    <div class="featured-preview-fallback">
+                        <i class="fa-solid fa-sun"></i>
+                        <span>THE WAY TO NIRVANA</span>
+                    </div>
+
+                </div>
+
+                <div class="featured-card-content">
+
+                    <h3>The Way to Nirvana</h3>
+
+                    <p>
+                        Een gamejamproject met een interactief
+                        timersysteem en dynamische audio.
+                    </p>
+
+                    <a href="nirvana-info.html" class="featured-card-btn">
+                        View Project
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+        <!-- ================= VIEW ALL PROJECTS ================= -->
+
+        <div class="featured-bottom">
+
+            <a href="myprojects.html" class="featured-all-btn">
+                View All Projects
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+
+        </div>
 
     </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
     <footer class="footer">
 
         <div class="footer-content">
 
             <div class="footer-left">
+
                 <h3>Neem contact op</h3>
+
                 <p>Laten we samen iets bijzonders creëren.</p>
+
             </div>
 
             <div class="footer-icons">
-                <a href="mailto:iliask195@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                <a href="https://www.linkedin.com/in/ilias-kamil-03182b383/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/ilias195"><i class="fa-brands fa-github"></i></a>
-                <a href="Img/CV_Ilias_Kamil_Word.pdf" target="_blank">CV</a>
+
+                <a href="mailto:iliask195@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/ilias-kamil-03182b383/">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+
+                <a href="https://github.com/ilias195">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="Img/CV_Ilias_Kamil_Word.pdf" target="_blank">
+                    CV
+                </a>
+
             </div>
 
         </div>
 
     </footer>
+
+
+    <!-- ==================================================
+                PROJECT ORDER - VERANDER HIER DE VOLGORDE
+    ================================================== -->
+
+    <script>
+
+        // ============================================
+        // VERANDER ALLEEN DEZE REGEL VOOR DE VOLGORDE
+        // ============================================
+
+        const projectOrder = ["vr", "starlight", "nirvana"];
+
+
+        // ============================================
+        // AUTOMATISCH DE KAARTEN SORTEREN
+        // ============================================
+
+        const featuredGrid = document.getElementById("featured-grid");
+
+        projectOrder.forEach(projectName => {
+
+            const projectCard = featuredGrid.querySelector(
+                `[data-project="${projectName}"]`
+            );
+
+            if (projectCard) {
+                featuredGrid.appendChild(projectCard);
+            }
+
+        });
+
+    </script>
+
 </body>
 
 </html>
