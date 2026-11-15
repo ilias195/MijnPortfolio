@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header.css">
@@ -19,61 +20,454 @@
 
 <body>
 
-<header class="header">
-   <a href="#home" class="logo">
-             <img src="Img/logo/tijdelijke-logo.png" alt="IK logo">
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <img src="Img/logo/tijdelijke-logo.png" alt="IK logo">
         </a>
 
+        <nav class="NavBar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="myprojects.html" class="active">Projects</a></li>
+            </ul>
+        </nav>
 
-    <nav class="NavBar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="myprojects.html" class="active">Projects</a></li>
-        </ul>
-    </nav>
-</header>
+    </header>
 
-<section class="mechanics-page bg-farmer">
 
-    <h1 class="mechanics-title">Mechanic</h1>
-    <p class="mechanics-subtitle">Een overzicht van de mechanic die ik heb ontwikkeld voor Untitled Goose</p>
+    <!-- ================= MECHANICS PAGE ================= -->
 
-    <div class="mechanic-tabs">
-        <button class="mechanic-tab active">Farmer Walk</button>
-    </div>
+    <section class="mechanics-page bg-farmer">
 
-    <div class="mechanic-content active">
-        <div class="mechanic-layout">
+        <h1 class="mechanics-title">Mechanic</h1>
 
-            <div class="mechanic-video">
-                <video autoplay loop muted playsinline>
-                    <source src="Videos/Farmer/Farmer.mp4" type="video/mp4">
-                </video>
-            </div>
+        <p class="mechanics-subtitle">
+            Een overzicht van de mechanic die ik heb ontwikkeld
+            voor Untitled Goose
+        </p>
 
-            <div class="mechanic-description">
 
-                <div class="farmer-header">
-                    <img src="Img/icoons/Farmer.png" class="farmer-icon" alt="Farmer mechanic icon">
-                    <h2>Farmer Walk</h2>
-                </div>
+        <!-- ================= MECHANIC TAB ================= -->
 
-                <p>
-                    Ik heb de Farmer Walk gemaakt met waypoints in de scene.
-                    De farmer beweegt automatisch tussen verschillende punten in het level. 
-                    Hierdoor kan ik makkelijk bepalen welke route hij volgt en hoe snel hij beweegt.
-                    Tijdens het lopen wordt de walk-animatie afgespeeld. 
-                    Bij bepaalde waypoints voert de farmer ook acties uit, zoals planten of oogsten. Deze acties worden geactiveerd op basis van zijn locatie,
-                     waardoor de farmer automatisch de juiste taak uitvoert.
-                </p>
+        <div class="mechanic-tabs">
 
-            </div>
+            <button class="mechanic-tab active">
+                Farmer Walk
+            </button>
 
         </div>
-    </div>
 
-</section>
+
+        <!-- ================= FARMER WALK ================= -->
+
+        <div class="mechanic-content active">
+
+            <div class="mechanic-layout">
+
+
+                <!-- ================= FARMER VIDEO ================= -->
+
+                <div class="mechanic-video">
+
+                    <video autoplay loop muted playsinline>
+                        <source src="Videos/Farmer/Farmer.mp4"
+                                type="video/mp4">
+                    </video>
+
+                </div>
+
+
+                <!-- ================= FARMER DESCRIPTION ================= -->
+
+                <div class="mechanic-description">
+
+                    <div class="farmer-header">
+
+                        <img src="Img/icoons/Farmer.png"
+                             class="farmer-icon"
+                             alt="Farmer mechanic icon">
+
+                        <h2>Farmer Walk</h2>
+
+                    </div>
+
+                    <p>
+                        Ik heb de Farmer Walk gemaakt met waypoints in de scene.
+
+                        De farmer beweegt automatisch tussen verschillende
+                        punten in het level. Hierdoor kan ik makkelijk bepalen
+                        welke route hij volgt en hoe snel hij beweegt.
+
+                        Tijdens het lopen wordt de walk-animatie afgespeeld.
+
+                        Bij bepaalde waypoints voert de farmer ook acties uit,
+                        zoals graven of harken. Deze acties worden geactiveerd
+                        op basis van zijn locatie, waardoor de farmer
+                        automatisch de juiste taak uitvoert.
+                    </p>
+
+
+                    <!-- ======================================
+                         FARMER CODE SNIPPETS
+                    ====================================== -->
+
+                    <div class="code-snippets-section">
+
+                        <h3 class="code-snippets-title">
+                            &lt;/&gt; Code Snippets
+                        </h3>
+
+
+                        <!-- ================= WAYPOINT MOVEMENT ================= -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+
+                                <span>
+                                    Movement.cs — Waypoint Movement
+                                </span>
+
+                                <span class="code-toggle"></span>
+
+                            </summary>
+
+                            <div class="code-actions">
+
+                                <button type="button"
+                                        class="copy-code"
+                                        onclick="copyCode(this)">
+                                    Copy
+                                </button>
+
+                            </div>
+
+                            <pre><code>private void Update()
+{
+    if (isWorking)
+    {
+        farmerAnimation.SetMoving(false);
+        return;
+    }
+
+    Vector3 direction = target.position - transform.position;
+
+    if (direction.magnitude > 0.4f)
+    {
+        farmerAnimation.SetMoving(true);
+
+        transform.Translate(
+            direction.normalized * _speed * Time.deltaTime,
+            Space.World
+        );
+
+        direction.y = 0;
+
+        if (direction.sqrMagnitude > 0.001f)
+        {
+            Quaternion targetRotation =
+                Quaternion.LookRotation(direction);
+
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                targetRotation,
+                5f * Time.deltaTime
+            );
+        }
+    }
+    else
+    {
+        farmerAnimation.SetMoving(false);
+        StartTaskWayPoint();
+    }
+}</code></pre>
+
+                        </details>
+
+
+                        <!-- ================= TASK SYSTEM ================= -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+
+                                <span>
+                                    Movement.cs — Task System
+                                </span>
+
+                                <span class="code-toggle"></span>
+
+                            </summary>
+
+                            <div class="code-actions">
+
+                                <button type="button"
+                                        class="copy-code"
+                                        onclick="copyCode(this)">
+                                    Copy
+                                </button>
+
+                            </div>
+
+                            <pre><code>void StartTaskWayPoint()
+{
+    WaypointTask waypointTask =
+        target.GetComponent&lt;WaypointTask&gt;();
+
+    if (waypointTask == null ||
+        waypointTask.taskType == FarmerTask.None)
+    {
+        GetNextWayPoint();
+        return;
+    }
+
+    if (waypointTask.taskType == FarmerTask.Digging)
+    {
+        currentTask = new DiggingTask();
+    }
+    else if (waypointTask.taskType == FarmerTask.Rake)
+    {
+        currentTask = new RakeTask();
+    }
+
+    farmerAnimation.PlayTaskAnimation(currentTask.TaskType);
+
+    isWorking = true;
+
+    Invoke(nameof(FinishTask), 5f);
+}
+
+void FinishTask()
+{
+    farmerAnimation.StopTaskAnimation();
+
+    isWorking = false;
+    currentTask = null;
+
+    GetNextWayPoint();
+}
+
+void GetNextWayPoint()
+{
+    wavePointIndex++;
+
+    if (wavePointIndex >= wayPoints.Points.Count)
+    {
+        wavePointIndex = 0;
+    }
+
+    target = wayPoints.Points[wavePointIndex];
+}</code></pre>
+
+                        </details>
+
+
+                        <!-- ================= ANIMATION CONTROL ================= -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+
+                                <span>
+                                    FarmerAnimation.cs — Animation Control
+                                </span>
+
+                                <span class="code-toggle"></span>
+
+                            </summary>
+
+                            <div class="code-actions">
+
+                                <button type="button"
+                                        class="copy-code"
+                                        onclick="copyCode(this)">
+                                    Copy
+                                </button>
+
+                            </div>
+
+                            <pre><code>public void SetMoving(bool moving)
+{
+    animator.SetBool("IsMoving", moving);
+}
+
+public void PlayTaskAnimation(FarmerTask task)
+{
+    animator.SetBool("IsMoving", false);
+    animator.SetBool("IsWorking", true);
+
+    animator.SetBool(
+        "IsRaking",
+        task == FarmerTask.Rake
+    );
+
+    animator.SetBool(
+        "IsDigging",
+        task == FarmerTask.Digging
+    );
+}
+
+public void StopTaskAnimation()
+{
+    animator.SetBool("IsWorking", false);
+    animator.SetBool("IsRaking", false);
+    animator.SetBool("IsDigging", false);
+}</code></pre>
+
+                        </details>
+
+                    </div>
+
+
+                    <!-- ======================================
+                         FARMER GITHUB LINKS
+                    ====================================== -->
+
+                    <div class="github-links">
+
+                        <a href="https://github.com/ilias195/BO-untitled-goose/blob/Develop/Assets/ilias/Scripts/Farmer/Movement/Movement.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ Movement.cs
+                        </a>
+
+                        <a href="https://github.com/ilias195/BO-untitled-goose/blob/Develop/Assets/ilias/Scripts/Farmer/Movement/WayPoints.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ WayPoints.cs
+                        </a>
+
+                        <a href="https://github.com/ilias195/BO-untitled-goose/blob/Develop/Assets/ilias/Scripts/Farmer/Animation/FarmerAnimation.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ FarmerAnimation.cs
+                        </a>
+
+                        <a href="https://github.com/ilias195/BO-untitled-goose/blob/Develop/Assets/ilias/Scripts/Farmer/Task/WaypointTask.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ WaypointTask.cs
+                        </a>
+
+                        <a href="https://github.com/ilias195/BO-untitled-goose/blob/Develop/Assets/ilias/Scripts/Farmer/Task/FarmerTaskBase.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ FarmerTaskBase.cs
+                        </a>
+
+                        <a href="https://github.com/ilias195/BO-untitled-goose/blob/Develop/Assets/ilias/Scripts/Farmer/Task/DiggingTask.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ DiggingTask.cs
+                        </a>
+
+                        <a href="https://github.com/ilias195/BO-untitled-goose/blob/Develop/Assets/ilias/Scripts/Farmer/Task/RakeTask.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ RakeTask.cs
+                        </a>
+
+                    </div>
+
+
+                </div> <!-- EINDE FARMER DESCRIPTION -->
+
+            </div> <!-- EINDE FARMER LAYOUT -->
+
+        </div> <!-- EINDE FARMER CONTENT -->
+
+    </section>
+
+
+    <!-- ======================================
+         JAVASCRIPT — COPY CODE
+    ====================================== -->
+
+    <script>
+
+        async function copyCode(button) {
+
+            const codeBlock = button.closest(".code-snippet");
+
+            if (!codeBlock) {
+                console.error("Code snippet niet gevonden.");
+                return;
+            }
+
+            const codeElement = codeBlock.querySelector("code");
+
+            if (!codeElement) {
+                console.error("Code element niet gevonden.");
+                return;
+            }
+
+            const code = codeElement.textContent;
+
+            try {
+
+                if (navigator.clipboard && window.isSecureContext) {
+
+                    await navigator.clipboard.writeText(code);
+
+                } else {
+
+                    const textarea =
+                        document.createElement("textarea");
+
+                    textarea.value = code;
+                    textarea.style.position = "fixed";
+                    textarea.style.left = "-9999px";
+
+                    document.body.appendChild(textarea);
+
+                    textarea.focus();
+                    textarea.select();
+
+                    const success =
+                        document.execCommand("copy");
+
+                    textarea.remove();
+
+                    if (!success) {
+                        throw new Error("Kopiëren mislukt.");
+                    }
+
+                }
+
+                button.textContent = "Copied!";
+                button.style.background = "#287a49";
+
+                setTimeout(() => {
+                    button.textContent = "Copy";
+                    button.style.background = "";
+                }, 2000);
+
+            } catch (error) {
+
+                console.error("Copy error:", error);
+
+                button.textContent = "Failed";
+
+                setTimeout(() => {
+                    button.textContent = "Copy";
+                }, 2000);
+
+            }
+
+        }
+
+    </script>
 
 </body>
 
