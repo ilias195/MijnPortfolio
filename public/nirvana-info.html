@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header.css">
@@ -19,11 +20,13 @@
 
 <body>
 
-    <header class="header">
-       <a href="#home" class="logo">
-             <img src="Img/logo/tijdelijke-logo.png" alt="IK logo">
-        </a>
+    <!-- ================= HEADER ================= -->
 
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            <img src="Img/logo/tijdelijke-logo.png" alt="IK logo">
+        </a>
 
         <nav class="NavBar">
             <ul>
@@ -32,21 +35,46 @@
                 <li><a href="myprojects.html" class="active">Projects</a></li>
             </ul>
         </nav>
+
     </header>
+
+
+    <!-- ================= MECHANICS PAGE ================= -->
 
     <section class="mechanics-page bg-timer">
 
         <h1 class="mechanics-title">Mechanics</h1>
-        <p class="mechanics-subtitle">Een overzicht van de mechanics die ik heb ontwikkeld voor The Way to Nirvana</p>
+
+        <p class="mechanics-subtitle">
+            Een overzicht van de mechanics die ik heb ontwikkeld
+            voor The Way to Nirvana
+        </p>
+
+
+        <!-- ================= TABS ================= -->
 
         <div class="mechanic-tabs">
-            <button class="mechanic-tab active" onclick="showMechanic(0)">Timer</button>
-            <button class="mechanic-tab" onclick="showMechanic(1)">Sounds</button>
+
+            <button class="mechanic-tab active" onclick="showMechanic(0)">
+                Timer
+            </button>
+
+            <button class="mechanic-tab" onclick="showMechanic(1)">
+                Sounds
+            </button>
+
         </div>
 
-        <!-- TIMER -->
+
+        <!-- ==================================================
+                            TIMER MECHANIC
+        ================================================== -->
+
         <div class="mechanic-content active">
+
             <div class="mechanic-layout">
+
+                <!-- TIMER VIDEO -->
 
                 <div class="mechanic-video">
 
@@ -56,23 +84,255 @@
 
                 </div>
 
+
+                <!-- TIMER DESCRIPTION -->
+
                 <div class="mechanic-description">
+
                     <div class="timer-header">
-                        <img src="Img/icoons/timerfull.png" class="timer-icon">
+
+                        <img src="Img/icoons/timerfull.png"
+                             class="timer-icon"
+                             alt="Timer icon">
+
                         <h2>Timer</h2>
+
                     </div>
-                    <p>Ik heb deze timer gemaakt met een UI Image in Unity. De timer telt af door de fillAmount van de
-                        cirkel langzaam kleiner te maken op basis van de resterende tijd. Daarnaast verandert de kleur
-                        automatisch tijdens het aftellen met behulp van een Gradient. Met de functies StartTimer() en
-                        ResetTimer() kan ik de timer makkelijk starten en resetten.</p>
-                </div>
 
-            </div>
-        </div>
+                    <p>
+                        Voor The Way to Nirvana heb ik een
+                        cirkelvormige timer gemaakt met Unity UI.
 
-        <!-- SOUNDS -->
+                        Met een Raycast controleer ik of de speler
+                        naar een Thought kijkt. Zolang de speler
+                        kijkt, wordt de resterende tijd afgeteld
+                        met Time.deltaTime.
+
+                        Met fillAmount laat ik zien hoeveel tijd
+                        er over is. Daarnaast heb ik een Gradient
+                        toegevoegd, waardoor de timer tijdens
+                        het aftellen van kleur verandert.
+
+                        Wanneer de speler wegkijkt, wordt de
+                        timer verborgen en visueel gereset.
+                        Ondertussen herstelt de resterende tijd
+                        geleidelijk naar de beginwaarde.
+                    </p>
+
+
+                    <!-- ================= TIMER CODE SNIPPETS ================= -->
+
+                    <div class="code-snippets-section">
+
+                        <h3 class="code-snippets-title">
+                            &lt;/&gt; Code Snippets
+                        </h3>
+
+
+                        <!-- LOOK BEHAVIOUR -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>LookBehaviour.cs — Gaze Detection</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button"
+                                        class="copy-code"
+                                        onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>void Update()
+{
+    Ray ray = cam.ViewportPointToRay(
+        new Vector3(0.5f, 0.5f, 0f)
+    );
+
+    Thought thought = null;
+    RaycastHit hit;
+
+    if (Physics.Raycast(ray, out hit, maxDistance, interactableMask))
+    {
+        thought = hit.transform.parent.GetComponent&lt;Thought&gt;();
+    }
+
+    if (thought != currentThought)
+    {
+        if (currentThought != null)
+        {
+            currentThought.StopLooking();
+        }
+
+        if (thought != null)
+        {
+            thought.StartLooking();
+        }
+
+        currentThought = thought;
+    }
+}</code></pre>
+
+                        </details>
+
+
+                        <!-- THOUGHT COUNTDOWN -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>Thought.cs — Countdown & Reset</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button"
+                                        class="copy-code"
+                                        onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>void Update()
+{
+    if (isLookedAt)
+    {
+        currentThoughtTime -= Time.deltaTime;
+
+        circleTimer.timeLeft = currentThoughtTime;
+
+        if (currentThoughtTime &lt;= 0)
+        {
+            CompleteLooking();
+        }
+    }
+    else if (currentThoughtTime &lt; thoughtTimer)
+    {
+        currentThoughtTime += Time.deltaTime;
+
+        if (currentThoughtTime > thoughtTimer)
+        {
+            currentThoughtTime = thoughtTimer;
+        }
+    }
+}
+
+public void StartLooking()
+{
+    isLookedAt = true;
+
+    circleTimer.StartTimer(
+        thoughtTimer,
+        currentThoughtTime
+    );
+}
+
+public void StopLooking()
+{
+    isLookedAt = false;
+    circleTimer.ResetTimer();
+}</code></pre>
+
+                        </details>
+
+
+                        <!-- CIRCLE TIMER -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>CircleTimer.cs — Timer UI</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button"
+                                        class="copy-code"
+                                        onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>void Update()
+{
+    if (timeLeft > 0)
+    {
+        float progress = timeLeft / duration;
+
+        timerImage.fillAmount = progress;
+
+        timerImage.color = gradient.Evaluate(progress);
+    }
+}
+
+public void StartTimer(float duration, float timeLeft)
+{
+    this.duration = duration;
+    this.timeLeft = timeLeft;
+
+    timerImage.enabled = true;
+    lotusImage.enabled = true;
+}
+
+public void ResetTimer()
+{
+    timeLeft = duration;
+
+    timerImage.enabled = false;
+    lotusImage.enabled = false;
+}</code></pre>
+
+                        </details>
+
+                    </div>
+
+
+                    <!-- ================= TIMER GITHUB LINKS ================= -->
+
+                    <div class="github-links">
+
+                        <a href="https://github.com/ilias195/The-Way-to-Nirvana/blob/main/Assets/Scripts/LookBehaviour.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ LookBehaviour.cs
+                        </a>
+
+                        <a href="https://github.com/ilias195/The-Way-to-Nirvana/blob/main/Assets/Scripts/ThoughtBehaviour/Thought.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ Thought.cs
+                        </a>
+
+                        <a href="https://github.com/ilias195/The-Way-to-Nirvana/blob/main/Assets/Scripts/CircleTimer.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ CircleTimer.cs
+                        </a>
+
+                    </div>
+
+                </div> <!-- EINDE TIMER DESCRIPTION -->
+
+            </div> <!-- EINDE TIMER LAYOUT -->
+
+        </div> <!-- EINDE TIMER CONTENT -->
+
+
+        <!-- ==================================================
+                            SOUNDS MECHANIC
+        ================================================== -->
+
         <div class="mechanic-content">
+
             <div class="mechanic-layout">
+
+                <!-- SOUNDS VIDEO -->
 
                 <div class="mechanic-video">
 
@@ -80,57 +340,268 @@
                         <source src="Videos/Sound/Sound.mp4" type="video/mp4">
                     </video>
 
+
+                    <!-- AUDIO EXAMPLES -->
+
                     <div class="audio-section">
 
                         <h3>Audio voorbeelden</h3>
 
+
+                        <!-- AMBIENCE SOUND -->
+
                         <div class="audio-player">
+
                             <p>Ambience sound</p>
 
                             <audio controls>
-                                <source src="Videos/Sound/mp3/Ambience&drones.wav" type="audio/wav">
+                                <source
+                                    src="Videos/Sound/mp3/Ambience&drones.wav"
+                                    type="audio/wav">
                             </audio>
+
                         </div>
 
+
+                        <!-- VOICE SOUND -->
+
                         <div class="audio-player">
+
                             <p>Voice sound</p>
 
                             <audio controls>
-                                <source src="Videos/Sound/mp3/Voices&Drones.wav" type="audio/wav">
+                                <source
+                                    src="Videos/Sound/mp3/Voices&Drones.wav"
+                                    type="audio/wav">
                             </audio>
+
                         </div>
 
                     </div>
 
                 </div>
 
-                <div class="mechanic-description">
-                    <h2>Sounds</h2>
-                    <p>Ik heb voor de audio meerdere AudioSources in Unity gebruikt, zoals ambience, voices en drone
-                        sounds. Deze geluiden spelen tegelijk af en veranderen automatisch van volume tijdens het
-                        spelen. Met behulp van Mathf.Lerp lopen de overgangen vloeiend in elkaar over. De audio reageert
-                        op hoeveel thoughts er nog over zijn in het spel. Als er veel thoughts over zijn hoor je vooral
-                        rustige ambience, en wanneer het minder wordt komen de voices en drone sounds sterker naar voren
-                        om meer spanning te creëren.
-                    </p>
-                </div>
 
-            </div>
-        </div>
+                <!-- SOUNDS DESCRIPTION -->
+
+                <div class="mechanic-description">
+
+                    <h2>Sounds</h2>
+
+                    <p>
+                        Ik heb voor de audio meerdere AudioSources
+                        in Unity gebruikt, zoals ambience, voices
+                        en drone sounds.
+
+                        Deze geluiden spelen tegelijk af en
+                        veranderen automatisch van volume
+                        tijdens het spelen.
+
+                        Met behulp van Mathf.Lerp lopen de
+                        overgangen vloeiend in elkaar over.
+
+                        De audio reageert op hoeveel thoughts
+                        er nog over zijn in het spel.
+
+                        Als er veel thoughts over zijn hoor je
+                        vooral rustige ambience, en wanneer het
+                        minder wordt komen de voices en drone
+                        sounds sterker naar voren om meer
+                        spanning te creëren.
+                    </p>
+
+
+                    <!-- ================= SOUNDS CODE SNIPPETS ================= -->
+
+                    <div class="code-snippets-section">
+
+                        <h3 class="code-snippets-title">
+                            &lt;/&gt; Code Snippets
+                        </h3>
+
+
+                        <!-- AUDIO SETUP -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>AudioManager.cs — Audio Setup</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button"
+                                        class="copy-code"
+                                        onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>void Start()
+{
+    ambience.loop = true;
+    voices.loop = true;
+    drone.loop = true;
+
+    ambience.Play();
+    voices.Play();
+    drone.Play();
+
+    Spawner.Instance.remainingThoughtsPercentageChanged
+        .AddListener(UpdateVolumes);
+
+    UpdateVolumes();
+}</code></pre>
+
+                        </details>
+
+
+                        <!-- DYNAMIC AUDIO -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>AudioManager.cs — Dynamic Audio</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button"
+                                        class="copy-code"
+                                        onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>public void UpdateVolumes()
+{
+    float percentage =
+        Spawner.Instance.remainingThoughtsPercentage;
+
+    targetAmbience = percentage;
+    targetVoices = 1f - percentage;
+    targetDrone = 1f - percentage;
+}
+
+void Update()
+{
+    ambience.volume = Mathf.Lerp(
+        ambience.volume,
+        targetAmbience,
+        fadeSpeed * Time.deltaTime
+    );
+
+    voices.volume = Mathf.Lerp(
+        voices.volume,
+        targetVoices,
+        fadeSpeed * Time.deltaTime
+    );
+
+    drone.volume = Mathf.Lerp(
+        drone.volume,
+        targetDrone,
+        fadeSpeed * Time.deltaTime
+    );
+}</code></pre>
+
+                        </details>
+
+
+                        <!-- THOUGHT PROGRESS -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>Spawner.cs — Thought Progress</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button"
+                                        class="copy-code"
+                                        onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>// Fragment uit CompleteThought()
+
+thoughtCompleted.Invoke();
+
+remainingThoughtsPercentage =
+    1f - (float)thoughtsCompleted /
+    ((float)initialThoughtsCount + 60);
+
+remainingThoughtsPercentageChanged.Invoke();</code></pre>
+
+                        </details>
+
+                    </div>
+
+
+                    <!-- ================= SOUNDS GITHUB LINKS ================= -->
+
+                    <div class="github-links">
+
+                        <a href="https://github.com/ilias195/The-Way-to-Nirvana/blob/main/Assets/Scripts/Audio/AudioManager.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ AudioManager.cs
+                        </a>
+
+                        <a href="https://github.com/ilias195/The-Way-to-Nirvana/blob/main/Assets/Scripts/Spawner.cs"
+                           class="github-code-btn"
+                           target="_blank"
+                           rel="noopener noreferrer">
+                            ↗ Spawner.cs
+                        </a>
+
+                    </div>
+
+                </div> <!-- EINDE SOUNDS DESCRIPTION -->
+
+            </div> <!-- EINDE SOUNDS LAYOUT -->
+
+        </div> <!-- EINDE SOUNDS CONTENT -->
 
     </section>
 
+
+    <!-- ==================================================
+                            JAVASCRIPT
+    ================================================== -->
+
     <script>
-        const mechanicTabs = document.querySelectorAll(".mechanic-tab");
-        const mechanicContents = document.querySelectorAll(".mechanic-content");
-        const section = document.querySelector(".mechanics-page");
+
+        const mechanicTabs =
+            document.querySelectorAll(".mechanic-tab");
+
+        const mechanicContents =
+            document.querySelectorAll(".mechanic-content");
+
+        const section =
+            document.querySelector(".mechanics-page");
+
+
+        // ================= MECHANIC SWITCH =================
 
         function showMechanic(index) {
-            mechanicTabs.forEach(tab => tab.classList.remove("active"));
-            mechanicContents.forEach(content => content.classList.remove("active"));
+
+            mechanicTabs.forEach(tab => {
+                tab.classList.remove("active");
+            });
+
+            mechanicContents.forEach(content => {
+                content.classList.remove("active");
+            });
 
             mechanicTabs[index].classList.add("active");
+
             mechanicContents[index].classList.add("active");
+
+
+            // BACKGROUND SWITCH
 
             section.classList.remove("bg-timer", "bg-sounds");
 
@@ -139,7 +610,85 @@
             } else {
                 section.classList.add("bg-sounds");
             }
+
         }
+
+
+        // ================= COPY CODE FUNCTION =================
+
+        async function copyCode(button) {
+
+            const codeBlock = button.closest(".code-snippet");
+
+            if (!codeBlock) {
+                console.error("Code snippet niet gevonden.");
+                return;
+            }
+
+            const codeElement = codeBlock.querySelector("code");
+
+            if (!codeElement) {
+                console.error("Code element niet gevonden.");
+                return;
+            }
+
+            const code = codeElement.textContent;
+
+            try {
+
+                if (navigator.clipboard && window.isSecureContext) {
+
+                    await navigator.clipboard.writeText(code);
+
+                } else {
+
+                    const textarea = document.createElement("textarea");
+
+                    textarea.value = code;
+                    textarea.style.position = "fixed";
+                    textarea.style.left = "-9999px";
+
+                    document.body.appendChild(textarea);
+
+                    textarea.focus();
+                    textarea.select();
+
+                    const success = document.execCommand("copy");
+
+                    textarea.remove();
+
+                    if (!success) {
+                        throw new Error("Kopiëren mislukt.");
+                    }
+
+                }
+
+
+                // COPY SUCCESS
+
+                button.textContent = "Copied!";
+                button.style.background = "#287a49";
+
+                setTimeout(() => {
+                    button.textContent = "Copy";
+                    button.style.background = "";
+                }, 2000);
+
+            } catch (error) {
+
+                console.error("Copy error:", error);
+
+                button.textContent = "Failed";
+
+                setTimeout(() => {
+                    button.textContent = "Copy";
+                    button.style.background = "";
+                }, 2000);
+
+            }
+
+        }
+
     </script>
 
 </body>
