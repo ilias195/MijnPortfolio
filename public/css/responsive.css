@@ -411,3 +411,35 @@
         font-size: 12px;
     }
 }
+}
+/* ================= CODE SNIPPETS RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+
+    /* CODE HEADER */
+
+    .code-header {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    /* BEKIJK CODE */
+
+    .code-toggle {
+        font-size: 11px;
+    }
+
+    /* CODE CONTENT */
+
+    .code-snippet pre {
+        padding: 14px;
+        font-size: 12px;
+    }
+
+    /* COPY BUTTON */
+
+    .code-actions {
+        padding: 10px 12px 0;
+    }
+
+}

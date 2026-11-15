@@ -19,8 +19,8 @@
 <body>
 
     <header class="header">
-       <a href="#home" class="logo">
-             <img src="Img/logo/tijdelijke-logo.png" alt="IK logo">
+        <a href="#home" class="logo">
+            <img src="Img/logo/tijdelijke-logo.png" alt="IK logo">
         </a>
 
 
@@ -74,6 +74,104 @@
                             het
                             systeem flexibel blijft.
                         </p>
+                        <!-- ================= CODE SNIPPETS SECTION ================= -->
+
+                        <div class="code-snippets-section">
+
+                            <h3 class="code-snippets-title">
+                                &lt;/&gt; Code Snippets
+                            </h3>
+                            <!-- ================= PLAYER MOVEMENT ================= -->
+
+                            <details class="code-snippet">
+
+                                <summary class="code-header">
+                                    <span>PlayerMovement.cs — Horizontal Movement</span>
+                                    <span class="code-toggle"></span>
+                                </summary>
+
+                                <div class="code-actions">
+                                    <button type="button" class="copy-code" onclick="copyCode(this)">
+                                        Copy
+                                    </button>
+                                </div>
+
+                                <pre><code>private void FixedUpdate()
+{
+    rb.linearVelocity = new Vector2(
+        MoveInput * moveSpeed,
+        rb.linearVelocity.y
+    );
+}</code></pre>
+
+                            </details>
+
+
+                            <!-- ================= PLAYER JUMP ================= -->
+
+                            <details class="code-snippet">
+
+                                <summary class="code-header">
+                                    <span>PlayerJump.cs — Jump & Ground Check</span>
+                                    <span class="code-toggle"></span>
+                                </summary>
+
+                                <div class="code-actions">
+                                    <button type="button" class="copy-code" onclick="copyCode(this)">
+                                        Copy
+                                    </button>
+                                </div>
+
+                                <pre><code>private void Update()
+{
+    if (isGrounded)
+    {
+        extraJumps = extraJumpValue;
+    }
+
+    if (Input.GetKeyDown(keyboardJumpKey) || Input.GetKeyDown(arcadeJumpKey))
+    {
+        if (isGrounded || extraJumps > 0)
+        {
+            rb.linearVelocity = new Vector2(
+                rb.linearVelocity.x,
+                jumpForce
+            );
+
+            if (!isGrounded)
+            {
+                extraJumps--;
+            }
+        }
+    }
+}
+
+private void FixedUpdate()
+{
+    isGrounded = Physics2D.OverlapCircle(
+        groundCheck.position,
+        groundRadius,
+        groundLayer
+    );
+}</code></pre>
+
+                            </details>
+                        </div>
+                        <!-- ================= GITHUB LINKS ================= -->
+
+                        <div class="github-links">
+
+                            <a href="https://github.com/ilias195/StarlightForest-EndlessRunner/blob/main/Assets/Scripts/Platformer/Movement/PlayerMovement.cs"
+                                class="github-code-btn" target="_blank" rel="noopener noreferrer">
+                                ↗ PlayerMovement.cs
+                            </a>
+
+                            <a href="https://github.com/ilias195/StarlightForest-EndlessRunner/blob/main/Assets/Scripts/Platformer/Movement/PlayerJump.cs"
+                                class="github-code-btn" target="_blank" rel="noopener noreferrer">
+                                ↗ PlayerJump.cs
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -86,11 +184,33 @@
                     <div class="mechanic-description">
                         <h2>Movement System - Level 2</h2>
                         <p>
-                            In het space-level heb ik hetzelfde movement systeem hergebruikt, maar aangepast voor
-                            een
-                            lichtere en zwevende ervaring. Door gravity en sprongwaarden veranderen ontstaat er een
-                            andere gameplay-feel zonder de controls te veranderen. Dit zorgt voor variatie in
-                            spelervaring terwijl de besturing consistent blijft voor de speler.
+                            Voor Level 2 heb ik hetzelfde movement- en jumpsysteem
+                            hergebruikt als in Level 1.
+
+                            Het belangrijkste verschil is dat ik de Gravity Scale
+                            van de Rigidbody2D heb aangepast via de Unity Inspector.
+
+                            Hierdoor blijft de speler langer in de lucht en voelt
+                            de beweging lichter en zwevender aan, zonder dat ik
+                            de bestaande C#-scripts hoefde aan te passen.
+                        </p>
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>Rigidbody2D — Gravity Scale</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="level-changes">
+                                <p>
+                                    De zwaartekracht is aangepast via de
+                                    Rigidbody2D-component in de Unity Inspector.
+                                    De movement- en jumpscripts zijn hergebruikt
+                                    zonder wijzigingen.
+                                </p>
+                            </div>
+
+                        </details>
                     </div>
                 </div>
             </div>
@@ -103,12 +223,10 @@
                     <div class="mechanic-description">
                         <h2>Movement System - Level 3</h2>
                         <p>
-                            In het nature-level ligt de nadruk meer op precies springen en goed timen. Daarom heb
-                            ik de
-                            beweging iets aangepast zodat het nauwkeuriger aanvoelt. Ik heb wel dezelfde basis
-                            gebruikt
-                            als in de andere levels, zodat de besturing herkenbaar blijft en de code overzichtelijk
-                            blijft.
+                            In Level 3 heb ik hetzelfde movement- en jumpsysteem hergebruikt als in de voorgaande
+                            levels. Ik heb geen nieuwe aanpassingen aan de scripts gedaan, omdat de bestaande besturing
+                            goed werkte voor dit level. Hierdoor blijft de code overzichtelijk en kan ik hetzelfde
+                            systeem in meerdere levels gebruiken.
                         </p>
                     </div>
                 </div>
@@ -137,16 +255,130 @@
                             Enemy Behaviour - Level 1
                         </h2>
                         <p>
-                            In level 1 heb ik de enemies ontworpen zowel als basisvijanden en basering op thema.
-                            Hierdoor wil ikde speler introduceren aan het
-                            spel. Hun beweging is eenvoudig en overzichtelijk gehouden, zodat de speler eerst kan
-                            wennen
-                            aan de gameplay.
-                            Voor hun navigatie heb ik gebruik gemaakt van lege GameObjects als waypoints. Tussen
-                            deze
-                            punten bewegen de enemies automatisch heen en weer. Hierdoor kan ik hun route eenvoudig
-                            aanpassen in Unity zonder wijzigingen in de code aan te brengen.
+                            Voor Level 1 heb ik een enemy-systeem ontwikkeld waarbij vijanden automatisch tussen
+                            verschillende waypoints bewegen.
+
+                            Met Vector2.MoveTowards bewegen de enemies tussen deze punten. Daarnaast heb ik een
+                            detectiesysteem toegevoegd dat de afstand tussen de enemy en de speler controleert.
+
+                            Wanneer de speler dichtbij genoeg komt, begint de enemy hem te achtervolgen. Als de speler
+                            binnen de attack range komt, wordt de attack-status geactiveerd.
+
+                            Door gebruik te maken van verschillende ranges kan ik eenvoudig bepalen wanneer een enemy
+                            patrouilleert, achtervolgt of in de aanvalstatus komt.
                         </p>
+                        <!-- ================= CODE SNIPPETS SECTION ================= -->
+
+<div class="code-snippets-section">
+
+    <h3 class="code-snippets-title">
+        &lt;/&gt; Code Snippets
+    </h3>
+                        <!-- ================= ENEMY DETECTION ================= -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>EnemyWalk.cs — Enemy Detection</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button" class="copy-code" onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>protected override void EnemyBehaviour()
+{
+    float distance = Vector2.Distance(
+        transform.position,
+        player.position
+    );
+
+    isChasing = false;
+    isAttacking = false;
+
+    if (distance &lt;= attackRange)
+    {
+        isChasing = true;
+        isAttacking = true;
+    }
+    else if (distance &lt;= chaseRange)
+    {
+        isChasing = true;
+        Chase();
+    }
+    else
+    {
+        Patrol();
+    }
+}</code></pre>
+
+                        </details>
+
+
+                        <!-- ================= PATROL & CHASE ================= -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>EnemyWalk.cs — Patrol & Chase</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button" class="copy-code" onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>private void Patrol()
+{
+    if (waypoints.Length &lt; 2) return;
+
+    Transform target = waypoints[currentIndex];
+
+    transform.position = Vector2.MoveTowards(
+        transform.position,
+        target.position,
+        patrolSpeed * Time.deltaTime
+    );
+
+    if (Vector2.Distance(transform.position, target.position) &lt; 0.05f)
+    {
+        if (currentIndex == waypoints.Length - 1)
+            direction = -1;
+        else if (currentIndex == 0)
+            direction = 1;
+
+        currentIndex += direction;
+    }
+}
+
+private void Chase()
+{
+    transform.position = Vector2.MoveTowards(
+        transform.position,
+        player.position,
+        chaseSpeed * Time.deltaTime
+    );
+}</code></pre>
+
+                        </details>
+</div>
+                        <!-- ================= ENEMY GITHUB ================= -->
+
+                        <div class="github-links">
+
+                            <a href="https://github.com/ilias195/StarlightForest-EndlessRunner/blob/main/Assets/Scripts/Platformer/Enemy/EnemyWalk.cs"
+                                class="github-code-btn" target="_blank" rel="noopener noreferrer">
+
+                                ↗ Bekijk EnemyWalk.cs op GitHub
+
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -162,12 +394,11 @@
                             Enemy Behaviour - Level 2
                         </h2>
                         <p>
-                            In het space-level zijn de enemies aangepast aan het thema van de ruimte.
-                            Zowel hun visuele uitstraling als hun plaatsing in het level sluiten aan bij de
-                            omgeving.
-                            Ook hier heb ik lege GameObjects gebruikt om hun bewegingsroute te bepalen.
-                            Door deze aanpak blijft het systeem flexibel en eenvoudig herbruikbaar voor andere
-                            levels.
+                            In Level 2 heb ik hetzelfde EnemyWalk-script hergebruikt als in Level 1. Het verschil zit in
+                            de patrouilleroutes van de enemies. Door de waypoints (lege GameObjects) op andere plekken
+                            in de Unity-scene te plaatsen, kan ik bepalen welke route de enemies volgen. Hierdoor
+                            krijgen de vijanden een ander bewegingspatroon zonder dat ik de bestaande code hoef aan te
+                            passen.
                         </p>
                     </div>
                 </div>
@@ -185,11 +416,10 @@
                             Enemy Behaviour - Level 3
                         </h2>
                         <p>
-                            In het nature-level zijn de enemies strategischer geplaatst, zodat timing en precisie
-                            belangrijker worden.
-                            Hun bewegingspatroon is afgestemd op de platform-elementen in dit level.
-                            Net als in de andere levels gebruik ik lege GameObjects om hun navigatie vast te leggen.
-                            Dit zorgt voor een overzichtelijke en schaalbare structuur binnen mijn project
+                            Ook in Level 3 heb ik hetzelfde EnemyWalk-script gebruikt. Voor dit level heb ik de
+                            waypoints anders geplaatst om de patrouilleroutes aan te passen aan de omgeving. Hierdoor
+                            moet de speler beter letten op de bewegingen van de enemies. Het voordeel is dat ik
+                            verschillende patrouilleroutes kan maken zonder nieuwe scripts te schrijven.
                         </p>
                     </div>
                 </div>
@@ -217,15 +447,102 @@
                             Coins - Level 1
                         </h2>
                         <p>
-                            In level 1 heb ik een coin-systeem toegevoegd waarbij de speler objecten kan verzamelen
-                            tijdens het
-                            spelen. Wanneer een coin wordt geraakt, verdwijnt deze uit het level en wordt de score
-                            direct
-                            bijgewerkt in de canvas. Ik heb hiervoor gekozen omdat het de speler een extra doel
-                            geeft en de
-                            gameplay actiever maakt. Daarnaast heb ik normale coins icoon gebruikt die passen bij
-                            het thema van het level, zodat ze visueel aantrekkelijk zijn en goed
+                            Voor Level 1 heb ik een coin-systeem gemaakt waarmee de speler coins kan verzamelen. Met
+                            OnTriggerEnter2D controleer ik of de speler een coin raakt. Wanneer dit gebeurt, wordt het
+                            aantal coins verhoogd, een geluid afgespeeld en de coin verwijderd.
+
+                            Daarnaast heb ik met TextMeshPro een UI-counter gemaakt die het aantal verzamelde coins op
+                            het scherm bijwerkt. Hierdoor kan de speler tijdens het spelen zien hoeveel coins hij heeft
+                            verzameld.
                         </p>
+                        <!-- ================= CODE SNIPPETS SECTION ================= -->
+
+<div class="code-snippets-section">
+
+    <h3 class="code-snippets-title">
+        &lt;/&gt; Code Snippets
+    </h3>
+                        <!-- ================= COIN COLLECTION ================= -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>Coin.cs — Coin Collection</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button" class="copy-code" onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>private void OnTriggerEnter2D(Collider2D collision)
+{
+    if (collision.CompareTag("Player"))
+    {
+        PlayerMovement playerCoin =
+            collision.GetComponent&lt;PlayerMovement&gt;();
+
+        if (playerCoin != null)
+        {
+            playerCoin.coins++;
+
+            if (AudioManager.audioCurrent != null &amp;&amp; coinClip != null)
+            {
+                AudioManager.audioCurrent.PlaySound(coinClip);
+            }
+
+            Destroy(gameObject);
+        }
+    }
+}</code></pre>
+
+                        </details>
+
+
+                        <!-- ================= COIN COUNTER UI ================= -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>CoinCounterUI.cs — UI Update</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button" class="copy-code" onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>[SerializeField] private PlayerMovement playerCoin;
+[SerializeField] private TextMeshProUGUI coinText;
+
+[SerializeField] private string labelName = "coins";
+
+private void Update()
+{
+    coinText.text = labelName + ": " + playerCoin.coins;
+}</code></pre>
+
+                        </details>
+</div>
+                        <!-- ================= COINS GITHUB ================= -->
+
+                        <div class="github-links">
+
+                            <a href="https://github.com/ilias195/StarlightForest-EndlessRunner/blob/main/Assets/Scripts/Platformer/Coin/Coin.cs"
+                                class="github-code-btn" target="_blank" rel="noopener noreferrer">
+                                ↗ Bekijk Coin.cs op GitHub
+                            </a>
+
+                            <a href="https://github.com/ilias195/StarlightForest-EndlessRunner/blob/main/Assets/Scripts/Platformer/Coin/CoinCounterUI.cs"
+                                class="github-code-btn" target="_blank" rel="noopener noreferrer">
+                                ↗ Bekijk CoinCounterUI.cs op GitHub
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -241,11 +558,9 @@
                             Coins - Level 2
                         </h2>
                         <p>
-                            In level 2 heb ik hetzelfde coin-systeem hergebruikt, maar toegepast binnen een andere
-                            omgeving.
-                            Hierdoor blijft de mechanic herkenbaar voor de speler, terwijl het level zelf toch een
-                            andere
-                            uitstraling en ervaring biedt.
+                            In Level 2 heb ik hetzelfde coin-systeem gebruikt als in Level 1. Alleen de afbeeldingen van
+                            de coins zijn aangepast aan het space-thema. De scripts zijn hetzelfde gebleven, waardoor ik
+                            het bestaande systeem kon hergebruiken zonder nieuwe code te schrijven.
                         </p>
                     </div>
                 </div>
@@ -263,11 +578,9 @@
                             Coins - Level 3
                         </h2>
                         <p>
-                            In level 3 heb ik het coin-systeem opnieuw gebruikt als onderdeel van de gameplay. Door
-                            deze
-                            mechanic in meerdere levels terug te laten komen, ontstaat er herkenbaarheid in het spel
-                            en begrijpt
-                            de speler sneller wat het doel is.
+                            In Level 3 heb ik opnieuw hetzelfde coin-systeem gebruikt. Voor dit level heb ik de
+                            afbeeldingen vervangen door coins die beter bij de natuurlijke omgeving passen. De werking
+                            van het verzamelen en de UI-counter is hetzelfde gebleven.
                         </p>
                     </div>
                 </div>
@@ -296,12 +609,105 @@
                             Healthbar - Level 1
                         </h2>
                         <p>
-                            In level 1 heb ik een healthbar toegevoegd zodat de speler direct kan zien hoeveel
-                            levens er nog
-                            over zijn. Ik heb hiervoor gekozen omdat dit duidelijke inzicht geeft tijdens het spelen
-                            en het
-                            makkelijker maakt om schade en gevaar te begrijpen.
+                            Voor Level 1 heb ik een health-systeem gemaakt waarmee de speler schade kan krijgen en
+                            levens kan verliezen.
+
+                            Met PlayerHealth houd ik bij hoeveel HP de speler heeft. Wanneer de speler schade krijgt,
+                            wordt de HP verlaagd.
+
+                            Daarnaast heb ik met Unity UI en TextMeshPro een healthbar gemaakt. De balk wordt aangepast
+                            aan de huidige HP en toont hoeveel levens de speler nog over heeft.
                         </p>
+                        <!-- ================= CODE SNIPPETS SECTION ================= -->
+
+<div class="code-snippets-section">
+
+    <h3 class="code-snippets-title">
+        &lt;/&gt; Code Snippets
+    </h3>
+                        <!-- ================= PLAYER HEALTH ================= -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>PlayerHealth.cs — Health & Damage</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button" class="copy-code" onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>private void Start()
+{
+    currentHealth = maxHealth;
+    healthbar.SetMaxHealth(maxHealth);
+}
+
+public void TakeDamage(int amount)
+{
+    if (isDead) return;
+
+    if (shieldActive)
+        amount /= 2;
+
+    currentHealth -= amount;
+
+    healthbar.SetHealth(currentHealth);
+
+    if (currentHealth &lt;= 0)
+    {
+        Die();
+    }
+}</code></pre>
+
+                        </details>
+
+
+                        <!-- ================= HEALTHBAR UI ================= -->
+
+                        <details class="code-snippet">
+
+                            <summary class="code-header">
+                                <span>HealthbarUI.cs — Healthbar Update</span>
+                                <span class="code-toggle"></span>
+                            </summary>
+
+                            <div class="code-actions">
+                                <button type="button" class="copy-code" onclick="copyCode(this)">
+                                    Copy
+                                </button>
+                            </div>
+
+                            <pre><code>private void Update()
+{
+    float current = playerHealth.CurrentHealth;
+    float max = playerHealth.MaxHealth;
+
+    fillImage.fillAmount = current / max;
+
+    healthText.text = current + " / " + max;
+}</code></pre>
+
+                        </details>
+</div>
+                        <!-- ================= HEALTHBAR GITHUB ================= -->
+
+                        <div class="github-links">
+
+                            <a href="https://github.com/ilias195/StarlightForest-EndlessRunner/blob/main/Assets/Scripts/Platformer/Health/PlayerHealth.cs"
+                                class="github-code-btn" target="_blank" rel="noopener noreferrer">
+                                ↗ Bekijk PlayerHealth.cs op GitHub
+                            </a>
+
+                            <a href="https://github.com/ilias195/StarlightForest-EndlessRunner/blob/main/Assets/Scripts/Platformer/Health/HealthbarUI.cs"
+                                class="github-code-btn" target="_blank" rel="noopener noreferrer">
+                                ↗ Bekijk HealthbarUI.cs op GitHub
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -319,9 +725,12 @@
                             Healthbar - Level 2
                         </h2>
                         <p>
-                            In level 2 blijft de healthbar hetzelfde werken, maar is deze aangepast aan het thema
-                            van het level. Hierdoor past hij beter bij de omgeving en blijft het voor de speler
-                            duidelijk, ook als de moeilijkheid verandert.
+                            In Level 2 heb ik hetzelfde healthbar-systeem hergebruikt als in Level 1. Het verschil is
+                            dat de healthbar nu de vorm van een planeet heeft, passend bij het space-thema.
+
+                            Daarnaast heb ik via de Unity Inspector de Fill-instellingen aangepast. Hierdoor loopt de
+                            healthbar van boven naar beneden leeg in plaats van van links naar rechts. De bestaande
+                            C#-scripts hoefde ik hiervoor niet aan te passen.
                         </p>
                     </div>
                 </div>
@@ -340,9 +749,11 @@
                             Healthbar - Level 3
                         </h2>
                         <p>
-                            In level 3 helpt de healthbar bij de spannendere gameplay, waarbij timing en overleven
-                            belangrijker zijn. De vormgeving is aangepast aan het thema van het level, waardoor het
-                            goed past bij de omgeving en de speler overzicht houdt tijdens het spelen.
+                            In Level 3 heb ik dezelfde healthbar gebruikt als in Level 1, zowel qua vormgeving als
+                            werking. De healthbar loopt van links naar rechts leeg wanneer de speler schade krijgt.
+
+                            Omdat het bestaande systeem goed werkte, heb ik geen aanpassingen aan de scripts hoeven
+                            maken.
                         </p>
                     </div>
                 </div>
@@ -356,43 +767,161 @@
         const mechanicTabs = document.querySelectorAll(".mechanic-tab");
         const mechanicContents = document.querySelectorAll(".mechanic-content");
 
+        // ================= MECHANIC SWITCH =================
+
         function showMechanic(index) {
-            mechanicTabs.forEach(tab => tab.classList.remove("active"));
-            mechanicContents.forEach(content => content.classList.remove("active"));
+
+            mechanicTabs.forEach(tab => {
+                tab.classList.remove("active");
+            });
+
+            mechanicContents.forEach(content => {
+                content.classList.remove("active");
+            });
 
             mechanicTabs[index].classList.add("active");
             mechanicContents[index].classList.add("active");
 
-            //  Reset naar level 1 background bij switch van mechanic
+            // Reset background
             const section = document.querySelector(".mechanics-page");
-            section.classList.remove("bg-level1", "bg-level2", "bg-level3");
+
+            section.classList.remove(
+                "bg-level1",
+                "bg-level2",
+                "bg-level3"
+            );
+
             section.classList.add("bg-level1");
+
         }
 
+
+        // ================= LEVEL SWITCH =================
+
         function showLevel(event, mechanicIndex, levelIndex) {
+
             const currentMechanic = mechanicContents[mechanicIndex];
+
             const levelTabs = currentMechanic.querySelectorAll(".level-tab");
             const levelContents = currentMechanic.querySelectorAll(".level-content");
 
-            levelTabs.forEach(tab => tab.classList.remove("active"));
-            levelContents.forEach(content => content.classList.remove("active"));
+            levelTabs.forEach(tab => {
+                tab.classList.remove("active");
+            });
+
+            levelContents.forEach(content => {
+                content.classList.remove("active");
+            });
 
             levelTabs[levelIndex].classList.add("active");
             levelContents[levelIndex].classList.add("active");
 
-            //  BACKGROUND SWITCH
+
+            // ================= BACKGROUND SWITCH =================
+
             const section = document.querySelector(".mechanics-page");
 
-            section.classList.remove("bg-level1", "bg-level2", "bg-level3");
+            section.classList.remove(
+                "bg-level1",
+                "bg-level2",
+                "bg-level3"
+            );
 
             if (levelIndex === 0) {
+
                 section.classList.add("bg-level1");
+
             } else if (levelIndex === 1) {
+
                 section.classList.add("bg-level2");
+
             } else if (levelIndex === 2) {
+
                 section.classList.add("bg-level3");
+
             }
+
         }
+
+
+        // ================= COPY CODE FUNCTION =================
+
+        async function copyCode(button) {
+
+            const codeBlock = button.closest(".code-snippet");
+
+            if (!codeBlock) {
+                console.error("Code snippet niet gevonden.");
+                return;
+            }
+
+            const codeElement = codeBlock.querySelector("code");
+
+            if (!codeElement) {
+                console.error("Code element niet gevonden.");
+                return;
+            }
+
+            const code = codeElement.textContent;
+
+            try {
+
+                // Moderne methode
+                if (navigator.clipboard && window.isSecureContext) {
+
+                    await navigator.clipboard.writeText(code);
+
+                } else {
+
+                    // Alternatieve methode
+                    const textarea = document.createElement("textarea");
+
+                    textarea.value = code;
+                    textarea.style.position = "fixed";
+                    textarea.style.left = "-9999px";
+
+                    document.body.appendChild(textarea);
+
+                    textarea.focus();
+                    textarea.select();
+
+                    const success = document.execCommand("copy");
+
+                    textarea.remove();
+
+                    if (!success) {
+                        throw new Error("Kopiëren mislukt.");
+                    }
+
+                }
+
+                // Succesmelding
+                button.textContent = "Copied!";
+                button.style.background = "#287a49";
+
+                setTimeout(() => {
+
+                    button.textContent = "Copy";
+                    button.style.background = "";
+
+                }, 2000);
+
+            } catch (error) {
+
+                console.error("Copy error:", error);
+
+                button.textContent = "Failed";
+
+                setTimeout(() => {
+
+                    button.textContent = "Copy";
+
+                }, 2000);
+
+            }
+
+        }
+
     </script>
 </body>
 

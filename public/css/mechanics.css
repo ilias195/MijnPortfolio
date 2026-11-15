@@ -1,3 +1,5 @@
+/* ================= MECHANICS PAGE ================= */
+
 .mechanics-page {
     position: relative;
     min-height: 100vh;
@@ -12,34 +14,48 @@
     background-repeat: no-repeat;
 }
 
-/* donkere tussenlaag over de background */
+/* Donkere tussenlaag over de background */
+
 .mechanics-page::before {
     content: "";
     position: absolute;
     inset: 0;
+
     background: rgba(0, 0, 0, 0.55);
+
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
+
     z-index: 0;
 }
 
-/* extra diepte/vignette */
+/* Extra diepte / vignette */
+
 .mechanics-page::after {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at center, transparent 35%, rgba(0,0,0,0.55) 100%);
+
+    background: radial-gradient(
+        circle at center,
+        transparent 35%,
+        rgba(0, 0, 0, 0.55) 100%
+    );
+
     z-index: 1;
     pointer-events: none;
 }
 
-/* alles boven de overlay zetten */
+/* Alles boven de overlay zetten */
+
 .mechanics-page > * {
     position: relative;
     z-index: 2;
 }
 
-/* TITLES */
+
+/* ================= TITLES ================= */
+
 .mechanics-title {
     font-size: 48px;
     margin-bottom: 10px;
@@ -51,7 +67,8 @@
     margin-bottom: 35px;
 }
 
-/* ================= MAIN TABS (Movement / Enemy / UI) ================= */
+
+/* ================= MAIN TABS ================= */
 
 .mechanic-tabs {
     display: flex;
@@ -63,11 +80,15 @@
 .mechanic-tab {
     background: #111;
     color: #EDEDED;
+
     border: 1px solid rgba(255, 255, 255, 0.06);
+
     padding: 12px 22px;
     border-radius: 12px;
+
     cursor: pointer;
     transition: 0.3s ease;
+
     font-weight: 600;
 }
 
@@ -78,8 +99,10 @@
 
 .mechanic-tab.active {
     background: #7A1E2C;
+
     box-shadow: 0 0 20px rgba(122, 30, 44, 0.35);
 }
+
 
 /* ================= LEVEL TABS ================= */
 
@@ -93,9 +116,12 @@
 .level-tab {
     background: #111;
     color: #EDEDED;
+
     border: 1px solid rgba(255, 255, 255, 0.06);
+
     padding: 10px 18px;
     border-radius: 10px;
+
     cursor: pointer;
     transition: 0.3s ease;
 }
@@ -106,8 +132,10 @@
 
 .level-tab.active {
     background: #7A1E2C;
+
     box-shadow: 0 0 15px rgba(122, 30, 44, 0.3);
 }
+
 
 /* ================= CONTENT SWITCHING ================= */
 
@@ -128,17 +156,25 @@
     display: block;
 }
 
-/* ===== LAYOUT (VIDEO + TEKST) ===== */
+
+/* ================= LAYOUT (VIDEO + TEKST) ================= */
+
 .mechanic-layout {
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     gap: 20px;
-    flex-wrap: wrap; /* zorgt dat het onder elkaar gaat op kleinere schermen */
+
+    flex-wrap: wrap;
+
     width: 100%;
 }
 
-/* ===== VIDEO / IMAGE ===== */
+
+/* ================= VIDEO / IMAGE ================= */
+
 .mechanic-video {
     flex: 1 1 600px;
     max-width: 900px;
@@ -147,10 +183,12 @@
     border-radius: 22px;
 
     background: rgba(8, 15, 25, 0.35);
+
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 
     border: 1px solid rgba(255, 255, 255, 0.16);
+
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
 }
 
@@ -158,9 +196,12 @@
 .mechanic-video video {
     width: 100%;
     height: auto;
+
     display: block;
+
     border-radius: 12px;
 }
+
 .mechanic-video video {
     width: 100%;
     height: auto;
@@ -171,20 +212,30 @@
 
     object-fit: cover;
 }
-/* ===== BESCHRIJVING (TEKST BOX) ===== */
+
+
+/* ================= BESCHRIJVING ================= */
+
 .mechanic-description {
     max-width: 620px;
+
+    /* Nieuw: voorkomt dat code de layout oprekt */
+    min-width: 0;
+    box-sizing: border-box;
+
     padding: 38px 42px;
     border-radius: 24px;
 
     background: rgba(5, 10, 16, 0.42);
+
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
 
-    border: 1px solid rgba(255,255,255,0.10);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+
     box-shadow:
-        0 25px 60px rgba(0,0,0,0.35),
-        inset 0 1px 0 rgba(255,255,255,0.06);
+        0 25px 60px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .mechanic-description h2 {
@@ -195,9 +246,11 @@
 
 .mechanic-description p {
     max-width: 520px;
+
     font-size: 1.08rem;
     line-height: 1.85;
-    color: rgba(255,255,255,0.78);
+
+    color: rgba(255, 255, 255, 0.78);
 }
 
 .mechanic-description p::first-line {
@@ -205,7 +258,9 @@
     font-weight: 600;
 }
 
-/* ===== COIN ICONS ===== */
+
+/* ================= COIN ICONS ================= */
+
 .coin-title {
     display: flex;
     align-items: center;
@@ -216,8 +271,9 @@
     width: 40px;
     height: 40px;
 
-    /* game effect */
-    filter: drop-shadow(0 0 6px rgba(255, 200, 0, 0.8));
+    filter: drop-shadow(
+        0 0 6px rgba(255, 200, 0, 0.8)
+    );
 }
 
 .coin-icon:hover {
@@ -225,7 +281,9 @@
     transition: 0.2s;
 }
 
-/* ===== ENEMY ICONS ===== */
+
+/* ================= ENEMY ICONS ================= */
+
 .enemy-title {
     display: flex;
     align-items: center;
@@ -236,14 +294,18 @@
     width: 40px;
     height: 40px;
 
-    /* game effect */
-    filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.8));
+    filter: drop-shadow(
+        0 0 6px rgba(0, 255, 150, 0.8)
+    );
 }
 
 .enemy-icon:hover {
     transform: scale(1.1);
     transition: 0.2s;
 }
+
+
+/* ================= BEE ICON ================= */
 
 .bee-title {
     display: flex;
@@ -255,16 +317,20 @@
     width: 50px;
     height: 50px;
 
-    /*  betere glow */
-    filter: drop-shadow(0 0 6px rgba(0, 255, 150, 0.6))
-            drop-shadow(0 0 12px rgba(255, 0, 150, 0.5));
+    filter:
+        drop-shadow(0 0 6px rgba(0, 255, 150, 0.6))
+        drop-shadow(0 0 12px rgba(255, 0, 150, 0.5));
 
-    /*  smooth animatie */
-    transition: transform 0.2s ease, filter 0.3s ease;
+    transition:
+        transform 0.2s ease,
+        filter 0.3s ease;
 
-    /*  idle effect (subtiel bewegen) */
     animation: float 2.5s ease-in-out infinite;
 }
+
+
+/* ================= HEALTHBAR ICON ================= */
+
 .healthbar-title {
     display: flex;
     align-items: center;
@@ -280,7 +346,9 @@
     object-fit: contain;
     image-rendering: pixelated;
 
-    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.18));
+    filter: drop-shadow(
+        0 0 12px rgba(255, 255, 255, 0.18)
+    );
 
     transition:
         transform 0.3s ease,
@@ -291,10 +359,13 @@
     transform: scale(1.08) rotate(-3deg);
 
     filter:
-        drop-shadow(0 0 18px rgba(255,255,255,0.3))
-        drop-shadow(0 0 30px rgba(255,255,255,0.12));
+        drop-shadow(0 0 18px rgba(255, 255, 255, 0.3))
+        drop-shadow(0 0 30px rgba(255, 255, 255, 0.12));
 }
-/* ===== BACKGROUNDS PER LEVEL ===== */
+
+
+/* ================= BACKGROUNDS PER LEVEL ================= */
+
 .bg-level1 {
     background-image: url("../Img/background/background level1.png");
 }
@@ -307,7 +378,8 @@
     background-image: url("../Img/background/backgroundlevel3.png");
 }
 
-/* ===== NIRVANA BACKGROUNDS ===== */
+
+/* ================= NIRVANA BACKGROUNDS ================= */
 
 .bg-timer {
     background-image: url("../Img/background/nirvana2.png");
@@ -316,22 +388,26 @@
 .bg-sounds {
     background-image: url("../Img/background/Nirvana.png");
 }
-/* ===== FARMER BACKGROUNDS ===== */
+
+
+/* ================= FARMER BACKGROUND ================= */
+
 .bg-farmer {
     background-image: url("../Img/background/UnitledGoose.png");
 }
 
 
-/* ===== TIMER HEADER ===== */
+/* ================= TIMER HEADER ================= */
 
-.timer-header{
+.timer-header {
     display: flex;
     align-items: center;
     gap: 18px;
+
     margin-bottom: 20px;
 }
 
-.timer-icon{
+.timer-icon {
     width: 75px;
     height: 75px;
 
@@ -344,16 +420,17 @@
     transition: 0.3s ease;
 }
 
-.timer-icon:hover{
+.timer-icon:hover {
     transform: scale(1.08) rotate(4deg);
 }
 
-.timer-header h2{
+.timer-header h2 {
     font-size: 2.3rem;
     margin: 0;
 }
 
-/* ===== AUDIO SECTION ===== */
+
+/* ================= AUDIO SECTION ================= */
 
 .audio-section {
     margin-top: 28px;
@@ -362,10 +439,12 @@
 .audio-section h3 {
     font-size: 1.4rem;
     margin-bottom: 18px;
+
     color: white;
 }
 
-/* AUDIO CARD */
+
+/* ================= AUDIO CARD ================= */
 
 .audio-player {
     padding: 18px;
@@ -373,9 +452,9 @@
 
     border-radius: 18px;
 
-    background: rgba(255,255,255,0.04);
+    background: rgba(255, 255, 255, 0.04);
 
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
 
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
@@ -386,14 +465,15 @@
 .audio-player:hover {
     transform: translateY(-3px);
 
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 
     box-shadow:
-        0 10px 30px rgba(0,0,0,0.25),
-        0 0 25px rgba(122,30,44,0.18);
+        0 10px 30px rgba(0, 0, 0, 0.25),
+        0 0 25px rgba(122, 30, 44, 0.18);
 }
 
-/* TITEL */
+
+/* ================= AUDIO TITLE ================= */
 
 .audio-player p {
     margin-bottom: 12px;
@@ -404,7 +484,8 @@
     color: white;
 }
 
-/* AUDIO PLAYER */
+
+/* ================= AUDIO PLAYER ================= */
 
 .audio-player audio {
     width: 100%;
@@ -414,15 +495,19 @@
     opacity: 0.92;
 }
 
-.farmer-header{
+
+/* ================= FARMER HEADER ================= */
+
+.farmer-header {
     display: flex;
     align-items: center;
     gap: 18px;
+
     margin-bottom: 20px;
 }
 
-.farmer-icon{
-     width: 120px;
+.farmer-icon {
+    width: 120px;
     height: 120px;
 
     object-fit: contain;
@@ -434,36 +519,44 @@
     transition: 0.3s ease;
 }
 
-.farmer-icon:hover{
+.farmer-icon:hover {
     transform: scale(1.08) rotate(4deg);
 }
 
-.farmer-header h2{
+.farmer-header h2 {
     font-size: 2.3rem;
     margin: 0;
 }
 
-/* ===== NOVA STRIKER BACKGROUND ===== */
+
+/* ================= NOVA STRIKER BACKGROUND ================= */
+
 .bg-nova {
     background-image: url("../img/background/nova-Striker.png");
 }
 
-/* ===== NOVA STRIKER HEADER ===== */
+
+/* ================= NOVA STRIKER HEADER ================= */
+
 .nova-header {
     display: flex;
     align-items: center;
     gap: 18px;
+
     margin-bottom: 20px;
 }
 
 .nova-icon {
     width: 100px;
     height: 100px;
+
     object-fit: contain;
     image-rendering: pixelated;
+
     filter:
         drop-shadow(0 0 10px rgba(0, 220, 255, 0.4))
         drop-shadow(0 0 25px rgba(0, 150, 255, 0.35));
+
     transition: 0.3s ease;
 }
 
@@ -475,3 +568,281 @@
     font-size: 2.3rem;
     margin: 0;
 }
+
+
+/* ====================================================
+   NIEUW: CODE SNIPPETS
+   ==================================================== */
+
+.code-snippet {
+    width: 100%;
+    min-width: 0;
+
+    margin-top: 25px;
+
+    background: rgba(5, 10, 16, 0.75);
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+
+/* ================= CODE HEADER ================= */
+
+.code-header {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 12px 16px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* ================= COPY BUTTON ================= */
+
+.copy-code {
+    background: #7A1E2C;
+    color: white;
+
+    border: none;
+    border-radius: 6px;
+
+    padding: 7px 13px;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease;
+}
+
+.copy-code:hover {
+    background: #9D2438;
+}
+
+
+/* ================= CODE CONTENT ================= */
+
+.code-snippet pre {
+    margin: 0;
+    padding: 18px;
+
+    max-width: 100%;
+
+    overflow-x: auto;
+
+    background: transparent;
+
+    color: #dce7f0;
+
+    font-size: 13px;
+    line-height: 1.7;
+
+    text-align: left;
+
+    tab-size: 4;
+}
+
+.code-snippet code {
+    font-family: Consolas, "Courier New", monospace;
+
+    white-space: pre;
+}
+.code-snippet + .code-snippet {
+    margin-top: 16px;
+}
+/* ================= COLLAPSIBLE CODE SNIPPETS ================= */
+
+/* Code snippet */
+
+.code-snippet {
+    margin-top: 16px;
+}
+
+/* Klikbare header */
+
+.code-snippet .code-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    cursor: pointer;
+    list-style: none;
+
+    transition: background 0.2s ease;
+}
+
+/* Standaard pijltje verwijderen */
+
+.code-snippet .code-header::-webkit-details-marker {
+    display: none;
+}
+
+/* Hover effect */
+
+.code-snippet .code-header:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* Tekst rechts */
+
+.code-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    flex-shrink: 0;
+
+    font-size: 12px;
+    font-weight: 500;
+
+    color: #bdbdbd;
+}
+
+/* Ingeklapt */
+
+.code-toggle::before {
+    content: "Bekijk code";
+}
+
+/* Pijltje */
+
+.code-toggle::after {
+    content: "⌄";
+
+    display: inline-block;
+
+    font-size: 20px;
+    line-height: 1;
+
+    transition: transform 0.2s ease;
+}
+
+/* Uitgeklapt */
+
+.code-snippet[open] .code-toggle::before {
+    content: "Verberg code";
+}
+
+.code-snippet[open] .code-toggle::after {
+    transform: rotate(180deg);
+}
+
+/* Copy button rechts boven de code */
+
+.code-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    padding: 12px 16px 0;
+}
+
+/* Code compact houden */
+
+.code-snippet pre {
+    padding: 12px 16px 18px;
+
+    overflow-x: auto;
+
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* Toetsenbordnavigatie */
+
+.code-snippet .code-header:focus-visible {
+    outline: 2px solid #9D2438;
+    outline-offset: -2px;
+}
+
+
+
+
+
+/* ================= GITHUB LINKS ================= */
+
+.github-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.github-code-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 14px;
+
+    background: rgba(255, 255, 255, 0.04);
+    color: #EDEDED;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.github-code-btn:hover {
+    background: #7A1E2C;
+    border-color: #9D2438;
+    transform: translateY(-2px);
+}
+
+/* ================= CODE SNIPPETS SECTION ================= */
+
+.code-snippets-section {
+    margin-top: 25px;
+    padding: 20px;
+
+    background: rgba(5, 10, 16, 0.25);
+
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 16px;
+}
+
+.code-snippets-title {
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    margin: 0 0 18px;
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* Ruimte tussen de codeblokken */
+
+.code-snippets-section .code-snippet {
+    margin-top: 0;
+}
+
+.code-snippets-section .code-snippet + .code-snippet {
+    margin-top: 12px;
+}
+
