@@ -1,0 +1,445 @@
+/* =========================================
+       BOW & ARROW TRIALS MECHANICS
+========================================= */
+
+
+/* =========================================
+                  PAGE
+========================================= */
+
+.bow-mechanics-page {
+
+    min-height: calc(100vh - 110px);
+
+    background-color: #0A0A0A;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    position: relative;
+
+}
+
+
+/* =========================================
+              BOW — TRIAL 1
+========================================= */
+
+.bow-mechanics-page.bg-vr-bow {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.35)
+        ),
+        url("../Img/Background/trial1-Background.png");
+
+    background-color: #172516;
+}
+
+
+/* =========================================
+              ARROW — TRIAL 3
+========================================= */
+
+.bow-mechanics-page.bg-vr-arrow {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.10),
+            rgba(0, 0, 0, 0.30)
+        ),
+        url("../Img/Background/trial3-Background.png");
+
+    background-color: #101b2d;
+}
+
+
+/* =========================================
+              HAPTICS — TRIAL 2
+========================================= */
+
+.bow-mechanics-page.bg-vr-haptics {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.20),
+            rgba(0, 0, 0, 0.40)
+        ),
+        url("../Img/Background/trial2-background.png");
+
+    background-color: #362015;
+}
+
+
+/* =========================================
+              ENEMY AI — TRIAL 1
+========================================= */
+
+.bow-mechanics-page.bg-vr-enemy {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.15),
+            rgba(0, 0, 0, 0.35)
+        ),
+        url("../Img/Background/trial1-Background.png");
+
+    background-color: #172516;
+}
+
+
+/* =========================================
+              TARGET — TRIAL 3
+========================================= */
+
+.bow-mechanics-page.bg-vr-target {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.10),
+            rgba(0, 0, 0, 0.30)
+        ),
+        url("../Img/Background/trial3-Background.png");
+
+    background-color: #101b2d;
+}
+
+
+/* =========================================
+              TIMER — TRIAL 2
+========================================= */
+
+.bow-mechanics-page.bg-vr-timer {
+    background-image:
+        linear-gradient(
+            rgba(0, 0, 0, 0.20),
+            rgba(0, 0, 0, 0.40)
+        ),
+        url("../Img/Background/trial2-background.png");
+
+    background-color: #362015;
+}
+
+/* =========================================
+              MECHANIC TABS
+========================================= */
+
+.bow-mechanics-page .mechanic-tabs {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+/* =========================================
+                TAB BUTTONS
+========================================= */
+
+.bow-mechanics-page .mechanic-tab {
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.3s ease;
+
+}
+
+
+/* TAB HOVER */
+
+.bow-mechanics-page .mechanic-tab:hover {
+
+    transform: translateY(-2px);
+
+}
+
+
+/* =========================================
+             MECHANIC CONTENT
+========================================= */
+
+.bow-mechanics-page .mechanic-content {
+
+    display: none;
+
+}
+
+
+/* ACTIVE MECHANIC */
+
+.bow-mechanics-page .mechanic-content.active {
+
+    display: block;
+
+}
+
+
+/* =========================================
+              MECHANIC LAYOUT
+========================================= */
+
+.bow-mechanics-page .mechanic-layout {
+
+    align-items: start;
+
+}
+
+
+/* =========================================
+              MECHANIC VIDEO
+========================================= */
+
+.bow-mechanics-page .mechanic-video {
+
+    min-width: 0;
+
+}
+
+
+/* =========================================
+              GAMEPLAY IMAGE
+========================================= */
+
+.bow-mechanics-page .vr-mechanic-image {
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+}
+
+
+/* =========================================
+              GAMEPLAY VIDEO
+========================================= */
+
+.bow-mechanics-page .mechanic-video video {
+
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    aspect-ratio: 16 / 9;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+}
+
+
+/* =========================================
+            MECHANIC DESCRIPTION
+========================================= */
+
+.bow-mechanics-page .mechanic-description {
+
+    min-width: 0;
+
+}
+
+
+/* DESCRIPTION TITLE */
+
+.bow-mechanics-page .mechanic-description h2 {
+
+    margin-bottom: 20px;
+
+}
+
+
+/* DESCRIPTION TEXT */
+
+.bow-mechanics-page .mechanic-description p {
+
+    line-height: 1.8;
+
+    white-space: normal;
+
+}
+
+
+/* =========================================
+               CODE SNIPPETS
+========================================= */
+
+.bow-mechanics-page .code-snippets-section {
+
+    width: 100%;
+
+    margin-top: 30px;
+
+}
+
+
+/* =========================================
+                CODE BLOCK
+========================================= */
+
+.bow-mechanics-page .code-snippet {
+
+    max-width: 100%;
+
+    overflow: hidden;
+
+}
+
+
+/* =========================================
+               CODE CONTENT
+========================================= */
+
+.bow-mechanics-page .code-snippet pre {
+
+    max-width: 100%;
+
+    overflow-x: auto;
+
+    tab-size: 4;
+
+}
+
+
+/* =========================================
+                 CODE TEXT
+========================================= */
+
+.bow-mechanics-page .code-snippet code {
+
+    font-family:
+        "Consolas",
+        "Courier New",
+        monospace;
+
+}
+
+
+/* =========================================
+                CODE HEADER
+========================================= */
+
+.bow-mechanics-page .code-header {
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+                GITHUB LINKS
+========================================= */
+
+.bow-mechanics-page .github-links {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+}
+
+
+/* =========================================
+                RESPONSIVE
+========================================= */
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+    .bow-mechanics-page .mechanic-tabs {
+
+        gap: 10px;
+
+    }
+
+    .bow-mechanics-page .mechanic-layout {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+    .bow-mechanics-page {
+
+        background-attachment: scroll;
+
+        background-position: center center;
+
+    }
+
+
+    /* TABS */
+
+    .bow-mechanics-page .mechanic-tabs {
+
+        gap: 8px;
+
+    }
+
+    .bow-mechanics-page .mechanic-tab {
+
+        font-size: 13px;
+
+    }
+
+
+    /* DESCRIPTION */
+
+    .bow-mechanics-page .mechanic-description h2 {
+
+        font-size: 25px;
+
+    }
+
+
+    /* GAMEPLAY */
+
+    .bow-mechanics-page .vr-mechanic-image {
+
+        border-radius: 10px;
+
+    }
+
+
+    /* CODE SNIPPETS */
+
+    .bow-mechanics-page .code-header {
+
+        font-size: 12px;
+
+    }
+
+    .bow-mechanics-page .code-snippet pre {
+
+        font-size: 12px;
+
+    }
+
+}
